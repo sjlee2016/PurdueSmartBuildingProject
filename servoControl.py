@@ -14,7 +14,7 @@ try:
 			time.sleep(0.0015)
 			GPIO.output(7,0)
 
-
+1
 except KeyboardInterrupt:
 	GPIO.cleanup()
 

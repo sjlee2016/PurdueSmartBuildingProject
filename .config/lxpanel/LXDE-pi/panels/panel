@@ -70,6 +70,9 @@ Plugin {
       id=lxterminal.desktop
     }
     Button {
+      id=Node-RED.desktop
+    }
+    Button {
       id=wolfram-mathematica.desktop
     }
     Button {

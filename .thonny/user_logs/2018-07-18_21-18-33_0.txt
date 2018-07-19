@@ -1,0 +1,126 @@
+[
+    {
+        "editor_id": 1971036048,
+        "time": "2018-07-18T21:18:33.522192",
+        "text_widget_id": 1971119888,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "sequence": "EditorTextCreated"
+    },
+    {
+        "editor_class": "Editor",
+        "editor_id": 1971036048,
+        "time": "2018-07-18T21:18:33.524456",
+        "text_widget_id": 1971119888,
+        "text_widget_class": "CodeViewText",
+        "filename": "/home/pi/receive.py",
+        "sequence": "Open"
+    },
+    {
+        "index1": "1.0",
+        "time": "2018-07-18T21:18:33.593689",
+        "index2": "2.0",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "TextDelete"
+    },
+    {
+        "time": "2018-07-18T21:18:33.609686",
+        "text": "import socket\n\nUDP_IP = \"192.168.20.86\"\n\nUDP_PORT = 5005\nMESSAGE = \" \"\nsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP\n#sock.bind(MESSAGE, (UDP_IP, UDP_PORT))\n\nwhile True:\n\n\tdata, addr = sock.recvfrom(1024) # buffer size is 1024 bytes\n\nprint \"received message:\", data\n",
+        "tags": "()",
+        "index": "1.0",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "TextInsert"
+    },
+    {
+        "view_id": 1970974992,
+        "view_class": "ShellView",
+        "time": "2018-07-18T21:18:33.622872",
+        "sequence": "ShowView"
+    },
+    {
+        "widget_id": 1983428496,
+        "widget_class": "Workbench",
+        "time": "2018-07-18T21:18:33.864950",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "time": "2018-07-18T21:18:33.897944",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "tags": "('welcome',)",
+        "index": "1.0",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970976240,
+        "sequence": "TextInsert"
+    },
+    {
+        "time": "2018-07-18T21:18:33.904614",
+        "text": "\n",
+        "tags": "('io',)",
+        "index": "1.31",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970976240,
+        "sequence": "TextInsert"
+    },
+    {
+        "time": "2018-07-18T21:18:33.907646",
+        "text": ">>> ",
+        "tags": "('toplevel', 'prompt')",
+        "index": "2.0",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970976240,
+        "sequence": "TextInsert"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:35.111975",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:36.238724",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:37.196783",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:37.858313",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:38.275794",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1971119888,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:18:38.773184",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1971119888,
+        "sequence": "<Button-1>"
+    }
+]

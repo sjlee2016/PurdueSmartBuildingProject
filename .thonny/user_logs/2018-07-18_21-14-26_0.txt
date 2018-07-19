@@ -1,0 +1,342 @@
+[
+    {
+        "editor_id": 1970318448,
+        "editor_class": "Editor",
+        "time": "2018-07-18T21:14:26.803459",
+        "text_widget_class": "CodeViewText",
+        "sequence": "EditorTextCreated",
+        "text_widget_id": 1970402544
+    },
+    {
+        "filename": "/home/pi/python_games/squirrel.py",
+        "editor_id": 1970318448,
+        "editor_class": "Editor",
+        "time": "2018-07-18T21:14:26.807112",
+        "text_widget_class": "CodeViewText",
+        "sequence": "Open",
+        "text_widget_id": 1970402544
+    },
+    {
+        "time": "2018-07-18T21:14:26.877585",
+        "index2": "2.0",
+        "text_widget_id": 1970402544,
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextDelete",
+        "index1": "1.0"
+    },
+    {
+        "time": "2018-07-18T21:14:26.906703",
+        "index": "1.0",
+        "tags": "()",
+        "text": "# Squirrel Eat Squirrel (a 2D Katamari Damacy clone)\n# By Al Sweigart al@inventwithpython.com\n# http://inventwithpython.com/pygame\n# Released under a \"Simplified BSD\" license\n\nimport random, sys, time, math, pygame\nfrom pygame.locals import *\n\nFPS = 30 # frames per second to update the screen\nWINWIDTH = 640 # width of the program's window, in pixels\nWINHEIGHT = 480 # height in pixels\nHALF_WINWIDTH = int(WINWIDTH / 2)\nHALF_WINHEIGHT = int(WINHEIGHT / 2)\n\nGRASSCOLOR = (24, 255, 0)\nWHITE = (255, 255, 255)\nRED = (255, 0, 0)\n\nCAMERASLACK = 90     # how far from the center the squirrel moves before moving the camera\nMOVERATE = 9         # how fast the player moves\nBOUNCERATE = 6       # how fast the player bounces (large is slower)\nBOUNCEHEIGHT = 30    # how high the player bounces\nSTARTSIZE = 25       # how big the player starts off\nWINSIZE = 300        # how big the player needs to be to win\nINVULNTIME = 2       # how long the player is invulnerable after being hit in seconds\nGAMEOVERTIME = 4     # how long the \"game over\" text stays on the screen in seconds\nMAXHEALTH = 3        # how much health the player starts with\n\nNUMGRASS = 80        # number of grass objects in the active area\nNUMSQUIRRELS = 30    # number of squirrels in the active area\nSQUIRRELMINSPEED = 3 # slowest squirrel speed\nSQUIRRELMAXSPEED = 7 # fastest squirrel speed\nDIRCHANGEFREQ = 2    # % chance of direction change per frame\nLEFT = 'left'\nRIGHT = 'right'\n\n\"\"\"\nThis program has three data structures to represent the player, enemy squirrels, and grass background objects. The data structures are dictionaries with the following keys:\n\nKeys used by all three data structures:\n    'x' - the left edge coordinate of the object in the game world (not a pixel coordinate on the screen)\n    'y' - the top edge coordinate of the object in the game world (not a pixel coordinate on the screen)\n    'rect' - the pygame.Rect object representing where on the screen the object is located.\nPlayer data structure keys:\n    'surface' - the pygame.Surface object that stores the image of the squirrel which will be drawn to the screen.\n    'facing' - either set to LEFT or RIGHT, stores which direction the player is facing.\n    'size' - the width and height of the player in pixels. (The width & height are always the same.)\n    'bounce' - represents at what point in a bounce the player is in. 0 means standing (no bounce), up to BOUNCERATE (the completion of the bounce)\n    'health' - an integer showing how many more times the player can be hit by a larger squirrel before dying.\nEnemy Squirrel data structure keys:\n    'surface' - the pygame.Surface object that stores the image of the squirrel which will be drawn to the screen.\n    'movex' - how many pixels per frame the squirrel moves horizontally. A negative integer is moving to the left, a positive to the right.\n    'movey' - how many pixels per frame the squirrel moves vertically. A negative integer is moving up, a positive moving down.\n    'width' - the width of the squirrel's image, in pixels\n    'height' - the height of the squirrel's image, in pixels\n    'bounce' - represents at what point in a bounce the player is in. 0 means standing (no bounce), up to BOUNCERATE (the completion of the bounce)\n    'bouncerate' - how quickly the squirrel bounces. A lower number means a quicker bounce.\n    'bounceheight' - how high (in pixels) the squirrel bounces\nGrass data structure keys:\n    'grassImage' - an integer that refers to the index of the pygame.Surface object in GRASSIMAGES used for this grass object\n\"\"\"\n\ndef main():\n    global FPSCLOCK, DISPLAYSURF, BASICFONT, L_SQUIR_IMG, R_SQUIR_IMG, GRASSIMAGES\n\n    pygame.init()\n    FPSCLOCK = pygame.time.Clock()\n    pygame.display.set_icon(pygame.image.load('gameicon.png'))\n    DISPLAYSURF = pygame.display.set_mode((WINWIDTH, WINHEIGHT))\n    pygame.display.set_caption('Squirrel Eat Squirrel')\n    BASICFONT = pygame.font.Font('freesansbold.ttf', 32)\n\n    # load the image files\n    L_SQUIR_IMG = pygame.image.load('squirrel.png')\n    R_SQUIR_IMG = pygame.transform.flip(L_SQUIR_IMG, True, False)\n    GRASSIMAGES = []\n    for i in range(1, 5):\n        GRASSIMAGES.append(pygame.image.load('grass%s.png' % i))\n\n    while True:\n        runGame()\n\n\ndef runGame():\n    # set up variables for the start of a new game\n    invulnerableMode = False  # if the player is invulnerable\n    invulnerableStartTime = 0 # time the player became invulnerable\n    gameOverMode = False      # if the player has lost\n    gameOverStartTime = 0     # time the player lost\n    winMode = False           # if the player has won\n\n    # create the surfaces to hold game text\n    gameOverSurf = BASICFONT.render('Game Over', True, WHITE)\n    gameOverRect = gameOverSurf.get_rect()\n    gameOverRect.center = (HALF_WINWIDTH, HALF_WINHEIGHT)\n\n    winSurf = BASICFONT.render('You have achieved OMEGA SQUIRREL!', True, WHITE)\n    winRect = winSurf.get_rect()\n    winRect.center = (HALF_WINWIDTH, HALF_WINHEIGHT)\n\n    winSurf2 = BASICFONT.render('(Press \"r\" to restart.)', True, WHITE)\n    winRect2 = winSurf2.get_rect()\n    winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)\n\n    # camerax and cameray are the top left of where the camera view is\n    camerax = 0\n    cameray = 0\n\n    grassObjs = []    # stores all the grass objects in the game\n    squirrelObjs = [] # stores all the non-player squirrel objects\n    # stores the player object:\n    playerObj = {'surface': pygame.transform.scale(L_SQUIR_IMG, (STARTSIZE, STARTSIZE)),\n                 'facing': LEFT,\n                 'size': STARTSIZE,\n                 'x': HALF_WINWIDTH,\n                 'y': HALF_WINHEIGHT,\n                 'bounce':0,\n                 'health': MAXHEALTH}\n\n    moveLeft  = False\n    moveRight = False\n    moveUp    = False\n    moveDown  = False\n\n    # start off with some random grass images on the screen\n    for i in range(10):\n        grassObjs.append(makeNewGrass(camerax, cameray))\n        grassObjs[i]['x'] = random.randint(0, WINWIDTH)\n        grassObjs[i]['y'] = random.randint(0, WINHEIGHT)\n\n    while True: # main game loop\n        # Check if we should turn off invulnerability\n        if invulnerableMode and time.time() - invulnerableStartTime > INVULNTIME:\n            invulnerableMode = False\n\n        # move all the squirrels\n        for sObj in squirrelObjs:\n            # move the squirrel, and adjust for their bounce\n            sObj['x'] += sObj['movex']\n            sObj['y'] += sObj['movey']\n            sObj['bounce'] += 1\n            if sObj['bounce'] > sObj['bouncerate']:\n                sObj['bounce'] = 0 # reset bounce amount\n\n            # random chance they change direction\n            if random.randint(0, 99) < DIRCHANGEFREQ:\n                sObj['movex'] = getRandomVelocity()\n                sObj['movey'] = getRandomVelocity()\n                if sObj['movex'] > 0: # faces right\n                    sObj['surface'] = pygame.transform.scale(R_SQUIR_IMG, (sObj['width'], sObj['height']))\n                else: # faces left\n                    sObj['surface'] = pygame.transform.scale(L_SQUIR_IMG, (sObj['width'], sObj['height']))\n\n\n        # go through all the objects and see if any need to be deleted.\n        for i in range(len(grassObjs) - 1, -1, -1):\n            if isOutsideActiveArea(camerax, cameray, grassObjs[i]):\n                del grassObjs[i]\n        for i in range(len(squirrelObjs) - 1, -1, -1):\n            if isOutsideActiveArea(camerax, cameray, squirrelObjs[i]):\n                del squirrelObjs[i]\n\n        # add more grass & squirrels if we don't have enough.\n        while len(grassObjs) < NUMGRASS:\n            grassObjs.append(makeNewGrass(camerax, cameray))\n        while len(squirrelObjs) < NUMSQUIRRELS:\n            squirrelObjs.append(makeNewSquirrel(camerax, cameray))\n\n        # adjust camerax and cameray if beyond the \"camera slack\"\n        playerCenterx = playerObj['x'] + int(playerObj['size'] / 2)\n        playerCentery = playerObj['y'] + int(playerObj['size'] / 2)\n        if (camerax + HALF_WINWIDTH) - playerCenterx > CAMERASLACK:\n            camerax = playerCenterx + CAMERASLACK - HALF_WINWIDTH\n        elif playerCenterx - (camerax + HALF_WINWIDTH) > CAMERASLACK:\n            camerax = playerCenterx - CAMERASLACK - HALF_WINWIDTH\n        if (cameray + HALF_WINHEIGHT) - playerCentery > CAMERASLACK:\n            cameray = playerCentery + CAMERASLACK - HALF_WINHEIGHT\n        elif playerCentery - (cameray + HALF_WINHEIGHT) > CAMERASLACK:\n            cameray = playerCentery - CAMERASLACK - HALF_WINHEIGHT\n\n        # draw the green background\n        DISPLAYSURF.fill(GRASSCOLOR)\n\n        # draw all the grass objects on the screen\n        for gObj in grassObjs:\n            gRect = pygame.Rect( (gObj['x'] - camerax,\n                                  gObj['y'] - cameray,\n                                  gObj['width'],\n                                  gObj['height']) )\n            DISPLAYSURF.blit(GRASSIMAGES[gObj['grassImage']], gRect)\n\n\n        # draw the other squirrels\n        for sObj in squirrelObjs:\n            sObj['rect'] = pygame.Rect( (sObj['x'] - camerax,\n                                         sObj['y'] - cameray - getBounceAmount(sObj['bounce'], sObj['bouncerate'], sObj['bounceheight']),\n                                         sObj['width'],\n                                         sObj['height']) )\n            DISPLAYSURF.blit(sObj['surface'], sObj['rect'])\n\n\n        # draw the player squirrel\n        flashIsOn = round(time.time(), 1) * 10 % 2 == 1\n        if not gameOverMode and not (invulnerableMode and flashIsOn):\n            playerObj['rect'] = pygame.Rect( (playerObj['x'] - camerax,\n                                              playerObj['y'] - cameray - getBounceAmount(playerObj['bounce'], BOUNCERATE, BOUNCEHEIGHT),\n                                              playerObj['size'],\n                                              playerObj['size']) )\n            DISPLAYSURF.blit(playerObj['surface'], playerObj['rect'])\n\n\n        # draw the health meter\n        drawHealthMeter(playerObj['health'])\n\n        for event in pygame.event.get(): # event handling loop\n            if event.type == QUIT:\n                terminate()\n\n            elif event.type == KEYDOWN:\n                if event.key in (K_UP, K_w):\n                    moveDown = False\n                    moveUp = True\n                elif event.key in (K_DOWN, K_s):\n                    moveUp = False\n                    moveDown = True\n                elif event.key in (K_LEFT, K_a):\n                    moveRight = False\n                    moveLeft = True\n                    if playerObj['facing'] != LEFT: # change player image\n                        playerObj['surface'] = pygame.transform.scale(L_SQUIR_IMG, (playerObj['size'], playerObj['size']))\n                    playerObj['facing'] = LEFT\n                elif event.key in (K_RIGHT, K_d):\n                    moveLeft = False\n                    moveRight = True\n                    if playerObj['facing'] != RIGHT: # change player image\n                        playerObj['surface'] = pygame.transform.scale(R_SQUIR_IMG, (playerObj['size'], playerObj['size']))\n                    playerObj['facing'] = RIGHT\n                elif winMode and event.key == K_r:\n                    return\n\n            elif event.type == KEYUP:\n                # stop moving the player's squirrel\n                if event.key in (K_LEFT, K_a):\n                    moveLeft = False\n                elif event.key in (K_RIGHT, K_d):\n                    moveRight = False\n                elif event.key in (K_UP, K_w):\n                    moveUp = False\n                elif event.key in (K_DOWN, K_s):\n                    moveDown = False\n\n                elif event.key == K_ESCAPE:\n                    terminate()\n\n        if not gameOverMode:\n            # actually move the player\n            if moveLeft:\n                playerObj['x'] -= MOVERATE\n            if moveRight:\n                playerObj['x'] += MOVERATE\n            if moveUp:\n                playerObj['y'] -= MOVERATE\n            if moveDown:\n                playerObj['y'] += MOVERATE\n\n            if (moveLeft or moveRight or moveUp or moveDown) or playerObj['bounce'] != 0:\n                playerObj['bounce'] += 1\n\n            if playerObj['bounce'] > BOUNCERATE:\n                playerObj['bounce'] = 0 # reset bounce amount\n\n            # check if the player has collided with any squirrels\n            for i in range(len(squirrelObjs)-1, -1, -1):\n                sqObj = squirrelObjs[i]\n                if 'rect' in sqObj and playerObj['rect'].colliderect(sqObj['rect']):\n                    # a player/squirrel collision has occurred\n\n                    if sqObj['width'] * sqObj['height'] <= playerObj['size']**2:\n                        # player is larger and eats the squirrel\n                        playerObj['size'] += int( (sqObj['width'] * sqObj['height'])**0.2 ) + 1\n                        del squirrelObjs[i]\n\n                        if playerObj['facing'] == LEFT:\n                            playerObj['surface'] = pygame.transform.scale(L_SQUIR_IMG, (playerObj['size'], playerObj['size']))\n                        if playerObj['facing'] == RIGHT:\n                            playerObj['surface'] = pygame.transform.scale(R_SQUIR_IMG, (playerObj['size'], playerObj['size']))\n\n                        if playerObj['size'] > WINSIZE:\n                            winMode = True # turn on \"win mode\"\n\n                    elif not invulnerableMode:\n                        # player is smaller and takes damage\n                        invulnerableMode = True\n                        invulnerableStartTime = time.time()\n                        playerObj['health'] -= 1\n                        if playerObj['health'] == 0:\n                            gameOverMode = True # turn on \"game over mode\"\n                            gameOverStartTime = time.time()\n        else:\n            # game is over, show \"game over\" text\n            DISPLAYSURF.blit(gameOverSurf, gameOverRect)\n            if time.time() - gameOverStartTime > GAMEOVERTIME:\n                return # end the current game\n\n        # check if the player has won.\n        if winMode:\n            DISPLAYSURF.blit(winSurf, winRect)\n            DISPLAYSURF.blit(winSurf2, winRect2)\n\n        pygame.display.update()\n        FPSCLOCK.tick(FPS)\n\n\n\n\ndef drawHealthMeter(currentHealth):\n    for i in range(currentHealth): # draw red health bars\n        pygame.draw.rect(DISPLAYSURF, RED,   (15, 5 + (10 * MAXHEALTH) - i * 10, 20, 10))\n    for i in range(MAXHEALTH): # draw the white outlines\n        pygame.draw.rect(DISPLAYSURF, WHITE, (15, 5 + (10 * MAXHEALTH) - i * 10, 20, 10), 1)\n\n\ndef terminate():\n    pygame.quit()\n    sys.exit()\n\n\ndef getBounceAmount(currentBounce, bounceRate, bounceHeight):\n    # Returns the number of pixels to offset based on the bounce.\n    # Larger bounceRate means a slower bounce.\n    # Larger bounceHeight means a higher bounce.\n    # currentBounce will always be less than bounceRate\n    return int(math.sin( (math.pi / float(bounceRate)) * currentBounce ) * bounceHeight)\n\ndef getRandomVelocity():\n    speed = random.randint(SQUIRRELMINSPEED, SQUIRRELMAXSPEED)\n    if random.randint(0, 1) == 0:\n        return speed\n    else:\n        return -speed\n\n\ndef getRandomOffCameraPos(camerax, cameray, objWidth, objHeight):\n    # create a Rect of the camera view\n    cameraRect = pygame.Rect(camerax, cameray, WINWIDTH, WINHEIGHT)\n    while True:\n        x = random.randint(camerax - WINWIDTH, camerax + (2 * WINWIDTH))\n        y = random.randint(cameray - WINHEIGHT, cameray + (2 * WINHEIGHT))\n        # create a Rect object with the random coordinates and use colliderect()\n        # to make sure the right edge isn't in the camera view.\n        objRect = pygame.Rect(x, y, objWidth, objHeight)\n        if not objRect.colliderect(cameraRect):\n            return x, y\n\n\ndef makeNewSquirrel(camerax, cameray):\n    sq = {}\n    generalSize = random.randint(5, 25)\n    multiplier = random.randint(1, 3)\n    sq['width']  = (generalSize + random.randint(0, 10)) * multiplier\n    sq['height'] = (generalSize + random.randint(0, 10)) * multiplier\n    sq['x'], sq['y'] = getRandomOffCameraPos(camerax, cameray, sq['width'], sq['height'])\n    sq['movex'] = getRandomVelocity()\n    sq['movey'] = getRandomVelocity()\n    if sq['movex'] < 0: # squirrel is facing left\n        sq['surface'] = pygame.transform.scale(L_SQUIR_IMG, (sq['width'], sq['height']))\n    else: # squirrel is facing right\n        sq['surface'] = pygame.transform.scale(R_SQUIR_IMG, (sq['width'], sq['height']))\n    sq['bounce'] = 0\n    sq['bouncerate'] = random.randint(10, 18)\n    sq['bounceheight'] = random.randint(10, 50)\n    return sq\n\n\ndef makeNewGrass(camerax, cameray):\n    gr = {}\n    gr['grassImage'] = random.randint(0, len(GRASSIMAGES) - 1)\n    gr['width']  = GRASSIMAGES[0].get_width()\n    gr['height'] = GRASSIMAGES[0].get_height()\n    gr['x'], gr['y'] = getRandomOffCameraPos(camerax, cameray, gr['width'], gr['height'])\n    gr['rect'] = pygame.Rect( (gr['x'], gr['y'], gr['width'], gr['height']) )\n    return gr\n\n\ndef isOutsideActiveArea(camerax, cameray, obj):\n    # Return False if camerax and cameray are more than\n    # a half-window length beyond the edge of the window.\n    boundsLeftEdge = camerax - WINWIDTH\n    boundsTopEdge = cameray - WINHEIGHT\n    boundsRect = pygame.Rect(boundsLeftEdge, boundsTopEdge, WINWIDTH * 3, WINHEIGHT * 3)\n    objRect = pygame.Rect(obj['x'], obj['y'], obj['width'], obj['height'])\n    return not boundsRect.colliderect(objRect)\n\n\nif __name__ == '__main__':\n    main()",
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970402544
+    },
+    {
+        "time": "2018-07-18T21:14:26.930381",
+        "view_class": "ShellView",
+        "sequence": "ShowView",
+        "view_id": "ShellView"
+    },
+    {
+        "time": "2018-07-18T21:14:27.994549",
+        "widget_id": 1982711696,
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "time": "2018-07-18T21:14:28.025725",
+        "index": "1.0",
+        "tags": "('welcome',)",
+        "text_widget_context": "shell",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:28.032521",
+        "index": "1.31",
+        "tags": "('io',)",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:28.035904",
+        "index": "2.0",
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:29.534799",
+        "widget_id": 1970261136,
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "time": "2018-07-18T21:14:29.663809",
+        "index2": "3.0",
+        "text_widget_id": 1970258032,
+        "index1": "2.4",
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "text_widget_context": "shell"
+    },
+    {
+        "time": "2018-07-18T21:14:29.665973",
+        "index": "2.4",
+        "tags": "('automagic', 'toplevel', 'command')",
+        "text_widget_context": "shell",
+        "text": "%Run squirrel.py\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:29.670499",
+        "index2": "3.0",
+        "text_widget_id": 1970258032,
+        "index1": "3.0",
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "text_widget_context": "shell"
+    },
+    {
+        "cmd_line": "%Run squirrel.py\n",
+        "sequence": "MagicCommand",
+        "time": "2018-07-18T21:14:29.672903"
+    },
+    {
+        "time": "2018-07-18T21:14:30.315162",
+        "command_text": "%Run squirrel.py\n",
+        "sequence": "ShellCommand"
+    },
+    {
+        "time": "2018-07-18T21:14:31.230020",
+        "widget_id": 1982711696,
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "time": "2018-07-18T21:14:42.669388",
+        "widget_id": 1982711696,
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "time": "2018-07-18T21:14:42.683591",
+        "index": "3.0",
+        "tags": "('io', 'stderr', 'vertically_spaced')",
+        "text_widget_context": "shell",
+        "text": "T",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.694358",
+        "index": "3.1",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "raceback (most recent call last):\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.704106",
+        "index": "4.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.706856",
+        "index": "4.2",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/python_games/squirrel.py\", line 396, in <module>",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.709079",
+        "index": "4.65",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.711322",
+        "index": "5.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "    main()\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.713947",
+        "index": "6.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.716506",
+        "index": "6.2",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/python_games/squirrel.py\", line 81, in main",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.718838",
+        "index": "6.60",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.721081",
+        "index": "7.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "    runGame()\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.723419",
+        "index": "8.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.729860",
+        "index": "8.2",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/python_games/squirrel.py\", line 217, in runGame",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.732412",
+        "index": "8.64",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.738076",
+        "index": "9.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "    terminate()\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.744359",
+        "index": "10.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.746844",
+        "index": "10.2",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/python_games/squirrel.py\", line 325, in terminate",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.749194",
+        "index": "10.66",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.751548",
+        "index": "11.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "    sys.exit()\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:42.754575",
+        "index": "12.0",
+        "tags": "('io', 'stderr')",
+        "text_widget_context": "shell",
+        "text": "SystemExit\n",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:43.459458",
+        "index": "13.0",
+        "tags": "('toplevel', 'prompt', 'vertically_spaced')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970258032
+    },
+    {
+        "time": "2018-07-18T21:14:43.516134",
+        "text_widget_id": 1970402544,
+        "widget_id": 1970402544,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText"
+    }
+]

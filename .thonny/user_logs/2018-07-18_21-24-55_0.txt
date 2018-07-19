@@ -1,0 +1,444 @@
+[
+    {
+        "text_widget_class": "CodeViewText",
+        "sequence": "EditorTextCreated",
+        "editor_id": 1970298640,
+        "time": "2018-07-18T21:24:55.906162",
+        "text_widget_id": 1970381808,
+        "editor_class": "Editor"
+    },
+    {
+        "filename": "/home/pi/servoControl.py",
+        "text_widget_class": "CodeViewText",
+        "sequence": "Open",
+        "editor_id": 1970298640,
+        "time": "2018-07-18T21:24:55.907203",
+        "text_widget_id": 1970381808,
+        "editor_class": "Editor"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextDelete",
+        "index2": "2.0",
+        "time": "2018-07-18T21:24:55.975734",
+        "text_widget_id": 1970381808,
+        "index1": "1.0"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:24:55.991835",
+        "text_widget_id": 1970381808,
+        "tags": "()",
+        "text": "import RPi.GPIO as GPIO\nimport time\n\nGPIO.setmode(GPIO.BOARD)\nGPIO.setup(7,GPIO.OUT)\nGPIO.setup(12,GPIO.IN, pull_up_down = GPIO.PUD_UP)\n\ntry: \n\twhile True:\n\t\tinput_status = GPIO.input(12)\n\t\tif input_status == False:\n\t\t\tprint \"button clicked\"\n\t\t\tGPIO.output(7,1)\n\t\t\ttime.sleep(0.0015)\n\t\t\tGPIO.output(7,0)\n\n\nexcept KeyboardInterrupt:\n\tGPIO.cleanup()\n\n",
+        "index": "1.0"
+    },
+    {
+        "view_class": "ShellView",
+        "sequence": "ShowView",
+        "view_id": "ShellView",
+        "time": "2018-07-18T21:24:56.005000"
+    },
+    {
+        "widget_id": 1982691216,
+        "time": "2018-07-18T21:24:56.225753",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:24:56.246451",
+        "text_widget_id": 1970238832,
+        "tags": "('welcome',)",
+        "text_widget_context": "shell",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "index": "1.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:24:56.252760",
+        "text_widget_id": 1970238832,
+        "tags": "('io',)",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "index": "1.31"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:24:56.255520",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "index": "2.0"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:25:01.697563"
+    },
+    {
+        "text_widget_id": 1970238832,
+        "sequence": "<Button-1>",
+        "text_widget_class": "ShellText",
+        "widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "widget_class": "ShellText",
+        "time": "2018-07-18T21:28:08.210005"
+    },
+    {
+        "widget_id": 1970406352,
+        "time": "2018-07-18T21:28:09.356254",
+        "sequence": "<Button-1>",
+        "widget_class": "Scrollbar"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:28:10.327918"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:28:52.742339",
+        "text_widget_id": 1970381808,
+        "tags": "None",
+        "text": "1",
+        "index": "17.0"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:28:54.897361"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:29:54.245300"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:29:55.445631"
+    },
+    {
+        "widget_id": 1970240624,
+        "time": "2018-07-18T21:29:59.742134",
+        "sequence": "<Button-1>",
+        "widget_class": "Button"
+    },
+    {
+        "filename": "/home/pi/servoControl.py",
+        "text_widget_class": "CodeViewText",
+        "sequence": "Save",
+        "editor_id": 1970298640,
+        "time": "2018-07-18T21:29:59.840807",
+        "text_widget_id": 1970381808,
+        "editor_class": "Editor"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "index2": "3.0",
+        "time": "2018-07-18T21:29:59.845574",
+        "text_widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "index1": "2.4"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:29:59.847190",
+        "text_widget_id": 1970238832,
+        "tags": "('automagic', 'toplevel', 'command')",
+        "text_widget_context": "shell",
+        "text": "%cd /home/pi\n%Run servoControl.py\n",
+        "index": "2.4"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "index2": "4.0",
+        "time": "2018-07-18T21:29:59.850755",
+        "text_widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "index1": "4.0"
+    },
+    {
+        "time": "2018-07-18T21:29:59.852090",
+        "sequence": "MagicCommand",
+        "cmd_line": "%cd /home/pi\n"
+    },
+    {
+        "time": "2018-07-18T21:29:59.853284",
+        "sequence": "ShellCommand",
+        "command_text": "%cd /home/pi\n"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:29:59.877999",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "index": "3.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "index2": "4.0",
+        "time": "2018-07-18T21:29:59.880423",
+        "text_widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "index1": "4.0"
+    },
+    {
+        "time": "2018-07-18T21:29:59.882391",
+        "sequence": "MagicCommand",
+        "cmd_line": "%Run servoControl.py\n"
+    },
+    {
+        "time": "2018-07-18T21:30:00.500638",
+        "sequence": "ShellCommand",
+        "command_text": "%Run servoControl.py\n"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.561525",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "index": "4.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.569358",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/servoControl.py\", line 12",
+        "index": "4.2"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.575964",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "index": "4.42"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.578545",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "    print \"button clicked\"\n",
+        "index": "5.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.580653",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "                         ^\n",
+        "index": "6.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.584068",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "SyntaxError: Missing parentheses in call to 'print'\n",
+        "index": "7.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.586275",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "index": "8.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:00.589835",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "index": "9.0"
+    },
+    {
+        "widget_id": 1970240624,
+        "time": "2018-07-18T21:30:02.619531",
+        "sequence": "<Button-1>",
+        "widget_class": "Button"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "index2": "10.0",
+        "time": "2018-07-18T21:30:02.765935",
+        "text_widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "index1": "9.4"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:02.768096",
+        "text_widget_id": 1970238832,
+        "tags": "('automagic', 'toplevel', 'command')",
+        "text_widget_context": "shell",
+        "text": "%Run servoControl.py\n",
+        "index": "9.4"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextDelete",
+        "index2": "10.0",
+        "time": "2018-07-18T21:30:02.773296",
+        "text_widget_id": 1970238832,
+        "text_widget_context": "shell",
+        "index1": "10.0"
+    },
+    {
+        "time": "2018-07-18T21:30:02.775687",
+        "sequence": "MagicCommand",
+        "cmd_line": "%Run servoControl.py\n"
+    },
+    {
+        "time": "2018-07-18T21:30:03.188325",
+        "sequence": "ShellCommand",
+        "command_text": "%Run servoControl.py\n"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.241559",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "  ",
+        "index": "10.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.242888",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error', 'hyperlink')",
+        "text_widget_context": "shell",
+        "text": "File \"/home/pi/servoControl.py\", line 12",
+        "index": "10.2"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.243979",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "index": "10.42"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.245011",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "    print \"button clicked\"\n",
+        "index": "11.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.246209",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "                         ^\n",
+        "index": "12.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.247232",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "SyntaxError: Missing parentheses in call to 'print'\n",
+        "index": "13.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.248219",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'error')",
+        "text_widget_context": "shell",
+        "text": "\n",
+        "index": "14.0"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "sequence": "TextInsert",
+        "time": "2018-07-18T21:30:03.249618",
+        "text_widget_id": 1970238832,
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_context": "shell",
+        "text": ">>> ",
+        "index": "15.0"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:30:04.127145"
+    },
+    {
+        "text_widget_id": 1970381808,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970381808,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-18T21:30:04.526188"
+    }
+]

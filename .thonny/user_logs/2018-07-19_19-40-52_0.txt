@@ -1,0 +1,78 @@
+[
+    {
+        "time": "2018-07-19T19:40:52.359444",
+        "text_widget_id": 1970607888,
+        "sequence": "EditorTextCreated",
+        "editor_id": 1970523920,
+        "editor_class": "Editor",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "time": "2018-07-19T19:40:52.360482",
+        "sequence": "Open",
+        "text_widget_id": 1970607888,
+        "editor_id": 1970523920,
+        "filename": "/home/pi/receive/receive.py",
+        "editor_class": "Editor",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "index2": "2.0",
+        "sequence": "TextDelete",
+        "text_widget_id": 1970607888,
+        "time": "2018-07-19T19:40:52.431127",
+        "index1": "1.0",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "tags": "()",
+        "time": "2018-07-19T19:40:52.458875",
+        "sequence": "TextInsert",
+        "text_widget_id": 1970607888,
+        "text": "import socket\nUDP_IP = \"192.168.20.92\"\nUDP_PORT = 5005\n\nsock = socket.socket(socket.AF_INET , socket.SOCK_DGRAM)\nsock.bind((UDP_IP, UDP_PORT))\n\nwhile True:\n\tdata , addr = sock.recvfrom(1024)\n\tprint \"received message : \", data\n",
+        "index": "1.0",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "view_class": "ShellView",
+        "time": "2018-07-19T19:40:52.471476",
+        "view_id": "ShellView",
+        "sequence": "ShowView"
+    },
+    {
+        "widget_id": 1982916496,
+        "time": "2018-07-19T19:40:52.693393",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "tags": "('welcome',)",
+        "time": "2018-07-19T19:40:52.705652",
+        "text_widget_id": 1970463952,
+        "sequence": "TextInsert",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "index": "1.0",
+        "text_widget_context": "shell",
+        "text_widget_class": "ShellText"
+    },
+    {
+        "tags": "('io',)",
+        "time": "2018-07-19T19:40:52.708567",
+        "text_widget_id": 1970463952,
+        "sequence": "TextInsert",
+        "text": "\n",
+        "index": "1.31",
+        "text_widget_context": "shell",
+        "text_widget_class": "ShellText"
+    },
+    {
+        "tags": "('toplevel', 'prompt')",
+        "time": "2018-07-19T19:40:52.710225",
+        "text_widget_id": 1970463952,
+        "sequence": "TextInsert",
+        "text": ">>> ",
+        "index": "2.0",
+        "text_widget_context": "shell",
+        "text_widget_class": "ShellText"
+    }
+]

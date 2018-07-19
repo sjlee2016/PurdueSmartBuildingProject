@@ -1,0 +1,98 @@
+[
+    {
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970334960,
+        "text_widget_id": 1970419792,
+        "editor_class": "Editor",
+        "time": "2018-07-18T21:17:34.414722",
+        "sequence": "EditorTextCreated"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970334960,
+        "text_widget_id": 1970419792,
+        "editor_class": "Editor",
+        "filename": "/home/pi/servoControl.py",
+        "time": "2018-07-18T21:17:34.418043",
+        "sequence": "Open"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-18T21:17:34.588427",
+        "text_widget_id": 1970419792,
+        "index1": "1.0",
+        "index2": "2.0",
+        "sequence": "TextDelete"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "time": "2018-07-18T21:17:34.622271",
+        "text_widget_id": 1970419792,
+        "text": "import RPi.GPIO as GPIO\nimport time\n\nGPIO.setmode(GPIO.BOARD)\nGPIO.setup(7,GPIO.OUT)\nGPIO.setup(12,GPIO.IN, pull_up_down = GPIO.PUD_UP)\n\ntry: \n\twhile True:\n\t\tinput_status = GPIO.input(12)\n\t\tif input_status == False:\n\t\t\tprint \"button clicked\"\n\t\t\tGPIO.output(7,1)\n\t\t\ttime.sleep(0.0015)\n\t\t\tGPIO.output(7,0)\n\n\nexcept KeyboardInterrupt:\n\tGPIO.cleanup()\n\n",
+        "tags": "()",
+        "sequence": "TextInsert"
+    },
+    {
+        "view_class": "ShellView",
+        "view_id": "ShellView",
+        "time": "2018-07-18T21:17:34.649198",
+        "sequence": "ShowView"
+    },
+    {
+        "time": "2018-07-18T21:17:35.046513",
+        "widget_id": 1982728080,
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "index": "1.0",
+        "time": "2018-07-18T21:17:35.080677",
+        "text_widget_id": 1970275344,
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "text_widget_context": "shell",
+        "tags": "('welcome',)",
+        "sequence": "TextInsert"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "index": "1.31",
+        "time": "2018-07-18T21:17:35.087548",
+        "text_widget_id": 1970275344,
+        "text": "\n",
+        "text_widget_context": "shell",
+        "tags": "('io',)",
+        "sequence": "TextInsert"
+    },
+    {
+        "text_widget_class": "ShellText",
+        "index": "2.0",
+        "time": "2018-07-18T21:17:35.090555",
+        "text_widget_id": 1970275344,
+        "text": ">>> ",
+        "text_widget_context": "shell",
+        "tags": "('toplevel', 'prompt')",
+        "sequence": "TextInsert"
+    },
+    {
+        "time": "2018-07-18T21:17:39.954468",
+        "widget_id": 1982728080,
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "time": "2018-07-18T21:17:41.007558",
+        "widget_id": 1982728080,
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1970419792,
+        "time": "2018-07-18T21:17:41.026928",
+        "widget_id": 1970419792,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>"
+    }
+]
