@@ -1,0 +1,86 @@
+[
+    {
+        "time": "2018-07-19T21:37:41.873445",
+        "text_widget_id": 1970648336,
+        "editor_class": "Editor",
+        "sequence": "EditorTextCreated",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970562960
+    },
+    {
+        "time": "2018-07-19T21:37:41.875487",
+        "text_widget_id": 1970648336,
+        "filename": "/home/pi/distance_sensor.py",
+        "editor_class": "Editor",
+        "sequence": "Open",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970562960
+    },
+    {
+        "time": "2018-07-19T21:37:41.943695",
+        "text_widget_id": 1970648336,
+        "index1": "1.0",
+        "index2": "2.0",
+        "sequence": "TextDelete",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "time": "2018-07-19T21:37:41.959683",
+        "text": "#!/usr/bin/python\nimport RPi.GPIO as GPIO\nimport time\n\ntry:\n      GPIO.setmode(GPIO.BOARD)\n\n      PIN_TRIGGER = 7\n      PIN_ECHO = 11\n\n      GPIO.setup(PIN_TRIGGER, GPIO.OUT)\n      GPIO.setup(PIN_ECHO, GPIO.IN)\n\n      GPIO.output(PIN_TRIGGER, GPIO.LOW)\n\n      print \"Waiting for sensor to settle\"\n\n      time.sleep(2)\n\n      print \"Calculating distance\"\n\n      GPIO.output(PIN_TRIGGER, GPIO.HIGH)\n\n      time.sleep(0.00001)\n\n      GPIO.output(PIN_TRIGGER, GPIO.LOW)\n\n      while GPIO.input(PIN_ECHO)==0:\n            pulse_start_time = time.time()\n      while GPIO.input(PIN_ECHO)==1:\n            pulse_end_time = time.time()\n\n      pulse_duration = pulse_end_time - pulse_start_time\n      distance = round(pulse_duration * 17150, 2)\n      print \"Distance:\",distance,\"cm\"\n\nfinally:\n      GPIO.cleanup()\n",
+        "text_widget_id": 1970648336,
+        "index": "1.0",
+        "tags": "()",
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "time": "2018-07-19T21:37:41.973568",
+        "sequence": "ShowView",
+        "view_class": "ShellView",
+        "view_id": "ShellView"
+    },
+    {
+        "widget_class": "Workbench",
+        "time": "2018-07-19T21:37:42.221017",
+        "sequence": "<FocusIn>",
+        "widget_id": 1982958032
+    },
+    {
+        "time": "2018-07-19T21:37:42.246456",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "text_widget_id": 1970504560,
+        "index": "1.0",
+        "tags": "('welcome',)",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell"
+    },
+    {
+        "time": "2018-07-19T21:37:42.249786",
+        "text": "\n",
+        "text_widget_id": 1970504560,
+        "index": "1.31",
+        "tags": "('io',)",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell"
+    },
+    {
+        "time": "2018-07-19T21:37:42.251198",
+        "text": ">>> ",
+        "text_widget_id": 1970504560,
+        "index": "2.0",
+        "tags": "('toplevel', 'prompt')",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell"
+    },
+    {
+        "widget_class": "CodeViewText",
+        "time": "2018-07-19T21:37:43.108419",
+        "text_widget_id": 1970648336,
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970648336
+    }
+]

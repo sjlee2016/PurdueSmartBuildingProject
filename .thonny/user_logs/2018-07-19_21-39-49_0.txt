@@ -1,0 +1,122 @@
+[
+    {
+        "sequence": "EditorTextCreated",
+        "editor_id": 1970327248,
+        "editor_class": "Editor",
+        "text_widget_id": 1970409872,
+        "time": "2018-07-19T21:39:49.244031",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "sequence": "Open",
+        "editor_id": 1970327248,
+        "editor_class": "Editor",
+        "text_widget_id": 1970409872,
+        "time": "2018-07-19T21:39:49.245033",
+        "text_widget_class": "CodeViewText",
+        "filename": "/home/pi/receive.py"
+    },
+    {
+        "time": "2018-07-19T21:39:49.316307",
+        "index1": "1.0",
+        "text_widget_id": 1970409872,
+        "sequence": "TextDelete",
+        "text_widget_class": "CodeViewText",
+        "index2": "2.0"
+    },
+    {
+        "time": "2018-07-19T21:39:49.332374",
+        "sequence": "TextInsert",
+        "text": "import socket\n\nUDP_IP = \"192.168.20.86\"\n\nUDP_PORT = 5005\nMESSAGE = \" \"\nsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP\n#sock.bind(MESSAGE, (UDP_IP, UDP_PORT))\n\nwhile True:\n\n\tdata, addr = sock.recvfrom(1024) # buffer size is 1024 bytes\n\nprint \"received message:\", data\n",
+        "text_widget_id": 1970409872,
+        "index": "1.0",
+        "text_widget_class": "CodeViewText",
+        "tags": "()"
+    },
+    {
+        "view_id": 1970267600,
+        "view_class": "ShellView",
+        "sequence": "ShowView",
+        "time": "2018-07-19T21:39:49.346123"
+    },
+    {
+        "time": "2018-07-19T21:39:49.546368",
+        "widget_id": 1982719888,
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-19T21:39:49.556977",
+        "sequence": "TextInsert",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "text_widget_id": 1970267472,
+        "index": "1.0",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "tags": "('welcome',)"
+    },
+    {
+        "time": "2018-07-19T21:39:49.559911",
+        "sequence": "TextInsert",
+        "text": "\n",
+        "text_widget_id": 1970267472,
+        "index": "1.31",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "tags": "('io',)"
+    },
+    {
+        "time": "2018-07-19T21:39:49.561112",
+        "sequence": "TextInsert",
+        "text": ">>> ",
+        "text_widget_id": 1970267472,
+        "index": "2.0",
+        "text_widget_class": "ShellText",
+        "text_widget_context": "shell",
+        "tags": "('toplevel', 'prompt')"
+    },
+    {
+        "widget_id": 1970409872,
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970409872,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-19T21:39:50.776956",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "time": "2018-07-19T21:39:51.623032",
+        "widget_id": 1982719888,
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-19T21:39:53.562224",
+        "widget_id": 1982719888,
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1970409872,
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970409872,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-19T21:39:54.473981",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "widget_id": 1970409872,
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970409872,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-19T21:39:54.861748",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "widget_id": 1970409872,
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970409872,
+        "widget_class": "CodeViewText",
+        "time": "2018-07-19T21:39:58.033750",
+        "text_widget_class": "CodeViewText"
+    }
+]

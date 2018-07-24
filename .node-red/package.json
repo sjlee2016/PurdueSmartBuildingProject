@@ -4,12 +4,14 @@
   "version": "0.0.1",
   "dependencies": {
     "node-red-contrib-camerapi": "0.0.38",
+    "node-red-contrib-firebase": "~1.1.1",
     "node-red-contrib-ibm-watson-iot": "^0.2.8",
     "node-red-contrib-play-audio": "^2.3.2",
     "node-red-dashboard": "~2.9.6",
     "node-red-node-ledborg": "0.0.20",
     "node-red-node-pi-sense-hat": "0.0.16",
     "node-red-node-ping": "0.0.15",
+    "node-red-node-pisrf": "~0.1.2",
     "node-red-node-random": "^0.1.0",
     "node-red-node-serialport": "^0.6.7",
     "node-red-node-smooth": "^0.1.0"

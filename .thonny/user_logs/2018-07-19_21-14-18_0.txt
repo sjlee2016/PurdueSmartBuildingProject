@@ -1,0 +1,3538 @@
+[
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "sequence": "EditorTextCreated",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:14:18.951003"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Open",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:14:18.952443"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "1.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:14:19.023774",
+        "sequence": "TextDelete",
+        "index2": "2.0"
+    },
+    {
+        "text": "import socket\nimport functions\n\nHOST = \"192.168.20.92\"\nPORT = 8888\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nprint ('Socket created')\ns.bind((HOST, PORT))\nprint ('Socket bind complete')\ns.listen(1)\nprint ('Socket now listening')\n\n# pi control function\ndef do_some_stuffs_with_input(input_string):\n\t#Raspberry Pi control\n\tif input_string == \"left\":\n\t\tinput_string = \"\uc11c\ubcf4\ubaa8\ud130 \uc88c\ud68c\uc804 \ud569\ub2c8\ub2e4.\"\n\t\tfunctions.servo()\n\telif input_string == \"right\":\n\t\tinput_string = \"\uc11c\ubcf4\ubaa8\ud130 \uc6b0\ud68c\uc804 \ud569\ub2c8\ub2e4.\"\n\telif input_string == \"single\":\n\t\tinput_string = \"\uc0ac\uc9c4\uc744 \ucc0d\uc2b5\ub2c8\ub2e4.\"\n\telse :\n\t\tinput_string = input_string + \" \uc5c6\ub294 \uba85\ub839\uc5b4 \uc785\ub2c8\ub2e4.\"\n\treturn input_string\n\nwhile True:\n\t#\uc811\uc18d \uc2b9\uc778\n\tconn, addr = s.accept()\n\tprint(\"Connected by \", addr)\n\n\t#\ub370\uc774\ud130 \uc218\uc2e0\n\tdata = conn.recv(1024)\n\tdata = data.decode(\"utf8\").strip()\n\tif not data: break\n\tprint(\"Received: \" + data)\n\n\t#\uc218\uc2e0\ud55c \ub370\uc774\ud130\ub85c \ud30c\uc774\ub97c \ucee8\ud2b8\ub864 \n\tres = do_some_stuffs_with_input(data)\n\tprint(\"\ud30c\uc774 \ub3d9\uc791 :\" + res)\n\n\t#\ud074\ub77c\uc774\uc5b8\ud2b8\uc5d0\uac8c \ub2f5\uc744 \ubcf4\ub0c4\n\tconn.sendall(res.encode(\"utf-8\"))\n\t#\uc5f0\uacb0 \ub2eb\uae30\n\tconn.close()\ns.close()",
+        "tags": "()",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "time": "2018-07-19T21:14:19.041237"
+    },
+    {
+        "time": "2018-07-19T21:14:19.057692",
+        "view_id": 1970443408,
+        "view_class": "ShellView",
+        "sequence": "ShowView"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:14:19.331328",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "tags": "('welcome',)",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "1.0",
+        "time": "2018-07-19T21:14:19.342000",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "\n",
+        "tags": "('io',)",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "1.31",
+        "time": "2018-07-19T21:14:19.345223",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": ">>> ",
+        "tags": "('toplevel', 'prompt')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "2.0",
+        "time": "2018-07-19T21:14:19.346736",
+        "text_widget_context": "shell"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:14:20.217040"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:14:23.842643",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:14:24.582486",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:14:24.593915"
+    },
+    {
+        "widget_id": 1970445520,
+        "time": "2018-07-19T21:14:52.879294",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "text_widget_id": 1970442512,
+        "sequence": "TextDelete",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-19T21:14:53.004585",
+        "index1": "2.4",
+        "index2": "3.0",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "%Run socketserver.py\n",
+        "tags": "('automagic', 'toplevel', 'command')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "2.4",
+        "time": "2018-07-19T21:14:53.006725",
+        "text_widget_context": "shell"
+    },
+    {
+        "text_widget_id": 1970442512,
+        "sequence": "TextDelete",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-19T21:14:53.011605",
+        "index1": "3.0",
+        "index2": "3.0",
+        "text_widget_context": "shell"
+    },
+    {
+        "cmd_line": "%Run socketserver.py\n",
+        "time": "2018-07-19T21:14:53.014069",
+        "sequence": "MagicCommand"
+    },
+    {
+        "time": "2018-07-19T21:14:53.365346",
+        "command_text": "%Run socketserver.py\n",
+        "sequence": "ShellCommand"
+    },
+    {
+        "text": "S",
+        "tags": "('io', 'stdout', 'vertically_spaced')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "3.0",
+        "time": "2018-07-19T21:14:53.425388",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "ocket created\nSocket bind complete\nSocket now listening\n",
+        "tags": "('io', 'stdout')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "3.1",
+        "time": "2018-07-19T21:14:53.426678",
+        "text_widget_context": "shell"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:14:53.844421",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:14:54.676684",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970442512,
+        "text_widget_id": 1970442512,
+        "widget_class": "ShellText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-19T21:15:28.987237",
+        "text_widget_context": "shell"
+    },
+    {
+        "widget_id": 1970446256,
+        "time": "2018-07-19T21:15:30.058104",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "text": "Traceback (most recent call last):\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "6.0",
+        "time": "2018-07-19T21:15:30.193377",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "  ",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "7.0",
+        "time": "2018-07-19T21:15:30.194525",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "File \"/home/pi/socketserver.py\", line 29, in <module>",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "7.2",
+        "time": "2018-07-19T21:15:30.195477",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "7.55",
+        "time": "2018-07-19T21:15:30.196369",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "    conn, addr = s.accept()\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "8.0",
+        "time": "2018-07-19T21:15:30.197283",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "  ",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "9.0",
+        "time": "2018-07-19T21:15:30.198217",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "File \"/usr/lib/python3.5/socket.py\", line 195, in accept",
+        "tags": "('io', 'stderr', 'hyperlink')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "9.2",
+        "time": "2018-07-19T21:15:30.199128",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "9.58",
+        "time": "2018-07-19T21:15:30.200044",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "    fd, addr = self._accept()\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "10.0",
+        "time": "2018-07-19T21:15:30.200976",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": "KeyboardInterrupt: Execution interrupted\n",
+        "tags": "('io', 'stderr')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "11.0",
+        "time": "2018-07-19T21:15:30.202036",
+        "text_widget_context": "shell"
+    },
+    {
+        "text": ">>> ",
+        "tags": "('toplevel', 'prompt', 'vertically_spaced')",
+        "text_widget_id": 1970442512,
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "12.0",
+        "time": "2018-07-19T21:15:30.206367",
+        "text_widget_context": "shell"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:33.888509"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:35.515568"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:35.977672"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:36.910932"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:39.696805"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:40.085896"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:41.833042"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:46.467720"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:46.684151"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:47.192474"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:15:50.619756"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:15:52.327642",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:15:52.472931",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:15:52.555500",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:15:53.191161",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:16:28.302294",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:16:29.332807",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:16:29.396363",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:16:35.081790",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:35.105382"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:40.969368"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:41.581034"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "17.19",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:43.292430",
+        "sequence": "TextDelete",
+        "index2": "17.31"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "17.18",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:43.891704",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.18",
+        "time": "2018-07-19T21:16:44.752927"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "17.18",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:45.111583",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "s",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.18",
+        "time": "2018-07-19T21:16:45.653114"
+    },
+    {
+        "text": "h",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.19",
+        "time": "2018-07-19T21:16:45.791146"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.20",
+        "time": "2018-07-19T21:16:46.352376"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.21",
+        "time": "2018-07-19T21:16:46.513180"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.22",
+        "time": "2018-07-19T21:16:46.679041"
+    },
+    {
+        "text": "d",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.23",
+        "time": "2018-07-19T21:16:46.784700"
+    },
+    {
+        "text": "o",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.24",
+        "time": "2018-07-19T21:16:46.881380"
+    },
+    {
+        "text": "w",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.25",
+        "time": "2018-07-19T21:16:47.030283"
+    },
+    {
+        "text": "n",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.26",
+        "time": "2018-07-19T21:16:47.165376"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:49.269359"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "20.18",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:52.659873",
+        "sequence": "TextDelete",
+        "index2": "20.31"
+    },
+    {
+        "text": "s",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.18",
+        "time": "2018-07-19T21:16:52.668902"
+    },
+    {
+        "text": "h",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.19",
+        "time": "2018-07-19T21:16:52.774366"
+    },
+    {
+        "text": "o",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.20",
+        "time": "2018-07-19T21:16:53.024906"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "20.20",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:53.328404",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:55.197058"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.22",
+        "time": "2018-07-19T21:16:55.600132"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.23",
+        "time": "2018-07-19T21:16:56.017371"
+    },
+    {
+        "text": "r",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "17.24",
+        "time": "2018-07-19T21:16:56.554097"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:16:59.293428"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.20",
+        "time": "2018-07-19T21:17:00.451606"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.21",
+        "time": "2018-07-19T21:17:00.829624"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.22",
+        "time": "2018-07-19T21:17:01.039001"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.23",
+        "time": "2018-07-19T21:17:01.998180"
+    },
+    {
+        "text": "r",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.24",
+        "time": "2018-07-19T21:17:02.171110"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.25",
+        "time": "2018-07-19T21:17:02.265245"
+    },
+    {
+        "text": "U",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.26",
+        "time": "2018-07-19T21:17:02.998403"
+    },
+    {
+        "text": "P",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.27",
+        "time": "2018-07-19T21:17:03.306721"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "20.27",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:05.206655",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "p",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "20.27",
+        "time": "2018-07-19T21:17:05.374330"
+    },
+    {
+        "widget_id": 1970611152,
+        "time": "2018-07-19T21:17:07.058365",
+        "widget_class": "Scrollbar",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1970611152,
+        "time": "2018-07-19T21:17:07.823682",
+        "widget_class": "Scrollbar",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:22.710274"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:23.094757"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:24.897988"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "22.18",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:26.466420",
+        "sequence": "TextDelete",
+        "index2": "22.27"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.18",
+        "time": "2018-07-19T21:17:26.474598"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "22.18",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:26.931093",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.18",
+        "time": "2018-07-19T21:17:27.417163"
+    },
+    {
+        "text": "a",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.19",
+        "time": "2018-07-19T21:17:27.532392"
+    },
+    {
+        "text": "k",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.20",
+        "time": "2018-07-19T21:17:27.646316"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.21",
+        "time": "2018-07-19T21:17:27.704727"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.22",
+        "time": "2018-07-19T21:17:27.833842"
+    },
+    {
+        "text": "a",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.23",
+        "time": "2018-07-19T21:17:28.188191"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.24",
+        "time": "2018-07-19T21:17:28.309379"
+    },
+    {
+        "text": "p",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.25",
+        "time": "2018-07-19T21:17:28.543881"
+    },
+    {
+        "text": "i",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.26",
+        "time": "2018-07-19T21:17:29.338352"
+    },
+    {
+        "text": "c",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.27",
+        "time": "2018-07-19T21:17:29.485792"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.28",
+        "time": "2018-07-19T21:17:29.737074"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.29",
+        "time": "2018-07-19T21:17:30.052811"
+    },
+    {
+        "text": "r",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.30",
+        "time": "2018-07-19T21:17:30.086406"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "22.31",
+        "time": "2018-07-19T21:17:30.275341"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:34.077929"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "24.33",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:35.940465",
+        "sequence": "TextDelete",
+        "index2": "24.45"
+    },
+    {
+        "text": "N",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "24.33",
+        "time": "2018-07-19T21:17:35.948735"
+    },
+    {
+        "text": "o",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "24.34",
+        "time": "2018-07-19T21:17:37.257941"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:39.101407"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:41.173780"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:17:41.855941"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:17:41.865605",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:42.675433"
+    },
+    {
+        "denied": "True",
+        "time": "2018-07-19T21:17:43.018293",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1970958096,
+        "time": "2018-07-19T21:17:43.413944",
+        "widget_class": "Frame",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:43.685434",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:51.198976",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:51.219816"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:52.387290"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:52.615411"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:53.146578"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:53.172983"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:53.175718",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:53.264222",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:53.324726",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:53.687338",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:53.706078"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:53.978222",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:54.156424",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:54.220079",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:17:54.530912",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:17:55.934099"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:07.219630"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:08.206530"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:08.723136"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:09.073535"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:09.954534"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:10.477820"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "40.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:12.106166",
+        "sequence": "TextDelete",
+        "index2": "40.13"
+    },
+    {
+        "text": "P",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.8",
+        "time": "2018-07-19T21:18:12.109810"
+    },
+    {
+        "text": "i",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.9",
+        "time": "2018-07-19T21:18:12.591788"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.10",
+        "time": "2018-07-19T21:18:12.787687"
+    },
+    {
+        "text": "w",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.11",
+        "time": "2018-07-19T21:18:12.921530"
+    },
+    {
+        "text": "o",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.12",
+        "time": "2018-07-19T21:18:13.070908"
+    },
+    {
+        "text": "r",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.13",
+        "time": "2018-07-19T21:18:13.197254"
+    },
+    {
+        "text": "k",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.14",
+        "time": "2018-07-19T21:18:13.338555"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:15.266685"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:15.816644"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:18:16.808180"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:18:16.815177",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:18:17.493301",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:18:21.768277",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:21.788558"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:25.174712"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:25.472004"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:25.765824"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:18:32.106655",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:18:41.307421",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:41.323708"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:41.971909"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:54.207559"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "28.1",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:18:58.065371",
+        "sequence": "TextDelete",
+        "index2": "28.7"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:18:59.274631",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:04.200488",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:04.220498"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:04.928905"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:05.246813"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:05.832690"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:06.950398"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:07.653268"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:08.760041"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:09.347019"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:09.941492"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "30.9",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:11.140533",
+        "sequence": "TextDelete",
+        "index2": "30.21"
+    },
+    {
+        "text": "C",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.9",
+        "time": "2018-07-19T21:19:11.144461"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "30.9",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:11.708462",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "30.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:11.921455",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "C",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.8",
+        "time": "2018-07-19T21:19:12.043612"
+    },
+    {
+        "text": "o",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.9",
+        "time": "2018-07-19T21:19:12.368190"
+    },
+    {
+        "text": "n",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.10",
+        "time": "2018-07-19T21:19:12.794802"
+    },
+    {
+        "text": "n",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.11",
+        "time": "2018-07-19T21:19:13.281572"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.12",
+        "time": "2018-07-19T21:19:13.414659"
+    },
+    {
+        "text": "c",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.13",
+        "time": "2018-07-19T21:19:13.647985"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.14",
+        "time": "2018-07-19T21:19:13.844087"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.15",
+        "time": "2018-07-19T21:19:14.034226"
+    },
+    {
+        "text": "d",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.16",
+        "time": "2018-07-19T21:19:14.174593"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.17",
+        "time": "2018-07-19T21:19:15.076247"
+    },
+    {
+        "text": "b",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.18",
+        "time": "2018-07-19T21:19:15.556539"
+    },
+    {
+        "text": "y",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "30.19",
+        "time": "2018-07-19T21:19:15.798030"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:16.403398",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:18.497172",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:18.512251"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:19:18.706175"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:19:18.709451",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:19.155490",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:21.962530",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:21.981950"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:23.098422"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:23.333138"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "34.21",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:24.752586",
+        "sequence": "TextDelete",
+        "index2": "34.25"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.21",
+        "time": "2018-07-19T21:19:24.760728"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.22",
+        "time": "2018-07-19T21:19:25.189270"
+    },
+    {
+        "text": "f",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.23",
+        "time": "2018-07-19T21:19:25.375692"
+    },
+    {
+        "text": "8",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.24",
+        "time": "2018-07-19T21:19:25.581945"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "36.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:31.444677",
+        "sequence": "TextDelete",
+        "index2": "36.18"
+    },
+    {
+        "text": "R",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.8",
+        "time": "2018-07-19T21:19:31.453106"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.9",
+        "time": "2018-07-19T21:19:31.777028"
+    },
+    {
+        "text": "c",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.10",
+        "time": "2018-07-19T21:19:32.155334"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.11",
+        "time": "2018-07-19T21:19:32.556995"
+    },
+    {
+        "text": "i",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.12",
+        "time": "2018-07-19T21:19:32.750927"
+    },
+    {
+        "text": "v",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.13",
+        "time": "2018-07-19T21:19:32.975077"
+    },
+    {
+        "text": "e",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.14",
+        "time": "2018-07-19T21:19:33.203173"
+    },
+    {
+        "text": "d",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.15",
+        "time": "2018-07-19T21:19:33.410863"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.16",
+        "time": "2018-07-19T21:19:33.855423"
+    },
+    {
+        "text": ":",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.17",
+        "time": "2018-07-19T21:19:34.065614"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.18",
+        "time": "2018-07-19T21:19:34.207293"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:19:35.848655"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:19:35.851859",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:36.768568",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:19:40.648449",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:40.669347"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:43.301646"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:45.981883"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:46.412115"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:19:51.126035"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:02.202106",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:04.919301",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:04.938686",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:06.423196",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:14.759183"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:15.529038"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "34.21",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:17.602503",
+        "sequence": "TextDelete",
+        "index2": "34.26"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "34.20",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:17.747856",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "\"",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.20",
+        "time": "2018-07-19T21:20:18.002953"
+    },
+    {
+        "text": "\"",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.21",
+        "time": "2018-07-19T21:20:18.886858"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.21",
+        "time": "2018-07-19T21:20:20.037435"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.22",
+        "time": "2018-07-19T21:20:20.340647"
+    },
+    {
+        "text": "f",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.23",
+        "time": "2018-07-19T21:20:20.552617"
+    },
+    {
+        "text": "8",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "34.24",
+        "time": "2018-07-19T21:20:20.792901"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:20:22.151581"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:20:22.157279",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:24.508195",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:29.737546",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:29.756095"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:31.506632"
+    },
+    {
+        "text": "l",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "32.8",
+        "time": "2018-07-19T21:20:54.189757"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:55.449870",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.7",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:55.684774",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.6",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:55.872502",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.5",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.183536",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.4",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.295311",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.3",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.388892",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.2",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.480367",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.1",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.643542",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:56.956324",
+        "sequence": "TextDelete",
+        "index2": "32.1"
+    },
+    {
+        "text": "    ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "32.0",
+        "time": "2018-07-19T21:20:56.959803"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "32.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:57.315636",
+        "sequence": "TextDelete",
+        "index2": "32.4"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "31.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:20:57.495304",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:20:58.813193"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:20:58.873820",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:20:59.527414",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:21:03.296066",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:03.316670"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:04.895706"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "37.1",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:06.138624",
+        "sequence": "TextDelete",
+        "index2": "37.19"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "37.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:07.540422",
+        "sequence": "TextDelete",
+        "index2": "37.1"
+    },
+    {
+        "text": "    ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "37.0",
+        "time": "2018-07-19T21:21:07.549777"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "37.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:07.787940",
+        "sequence": "TextDelete",
+        "index2": "37.4"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "36.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:08.106487",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "35.28",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:08.585202",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "\n",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "35.28",
+        "time": "2018-07-19T21:21:09.818728"
+    },
+    {
+        "text": "\t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "36.0",
+        "time": "2018-07-19T21:21:09.829949"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:10.449936"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "40.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:11.308932",
+        "sequence": "TextDelete",
+        "index2": "40.15"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "39.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:11.795231",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:12.289969"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "40.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:12.902473",
+        "sequence": "TextDelete",
+        "index2": "41.7"
+    },
+    {
+        "text": "\tconn.sendall(res.encode(\"utf-8\"))\n\t#\uc5f0\uacb0 \ub2eb\uae30",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.0",
+        "time": "2018-07-19T21:21:14.302681"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<<Undo>>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:14.308008"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "41.1",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:16.068296",
+        "sequence": "TextDelete",
+        "index2": "41.7"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "41.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:16.279198",
+        "sequence": "TextDelete",
+        "index2": "41.1"
+    },
+    {
+        "text": "    ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "41.0",
+        "time": "2018-07-19T21:21:16.287150"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "41.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:16.505012",
+        "sequence": "TextDelete",
+        "index2": "41.4"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "40.34",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:16.998460",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:21.341157"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "40.26",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:24.075296",
+        "sequence": "TextDelete",
+        "index2": "40.31"
+    },
+    {
+        "text": "u",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.26",
+        "time": "2018-07-19T21:21:24.083149"
+    },
+    {
+        "text": "t",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.27",
+        "time": "2018-07-19T21:21:24.233444"
+    },
+    {
+        "text": "f",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.28",
+        "time": "2018-07-19T21:21:24.470169"
+    },
+    {
+        "text": "8",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "40.29",
+        "time": "2018-07-19T21:21:24.867535"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:21:27.115502"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:21:27.121186",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:21:27.889569",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:21:51.113726",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:21:51.132748"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:21:53.923366",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:00.745966",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:00.763691"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:01.781972"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:07.690770"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:08.151131"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:09.836718"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "33.24",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:10.808582",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "8",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "33.24",
+        "time": "2018-07-19T21:22:10.993086"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "33.24",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:11.503374",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "text": "8",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "33.24",
+        "time": "2018-07-19T21:22:12.802713"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:21.120388"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:22.726019"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:22.990264"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:23.475071"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:23.862926"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:24.283245"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:24.750022"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:25.097115"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:26.197994"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "4.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:28.873911",
+        "sequence": "TextDelete",
+        "index2": "4.21"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "4.8",
+        "time": "2018-07-19T21:22:29.478699"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:30.631357",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:30.800183",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:30.866641",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:33.830400",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:33.849464"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:34.697766"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "4.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:35.367734",
+        "sequence": "TextDelete",
+        "index2": "None"
+    },
+    {
+        "widget_id": 1970445520,
+        "time": "2018-07-19T21:22:36.455595",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:37.380345"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:22:38.156035"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:22:38.162236",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "denied": "True",
+        "time": "2018-07-19T21:22:39.468715",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:39.791047"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:40.491803",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:47.569269",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:47.587851"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:49.634690"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:49.691727"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:49.937516"
+    },
+    {
+        "text": " ",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "4.8",
+        "time": "2018-07-19T21:22:50.958223"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<<Undo>>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:50.964065"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "4.8",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:51.625635",
+        "sequence": "TextDelete",
+        "index2": "4.9"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<<Undo>>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:51.627650"
+    },
+    {
+        "text": "192.168.20.92",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "4.8",
+        "time": "2018-07-19T21:22:52.464281"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<<Undo>>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:52.469332"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:22:53.466455"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:22:53.479149",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:54.350890"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:54.920357"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:56.212341",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:22:58.984370",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:59.005887"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:22:59.930693"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:00.410537"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:00.595287"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:00.924131"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:01.290618"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:01.489340"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:01.812511"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:02.100876"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:02.396293"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:02.635793"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:02.859712"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:06.442197"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:06.906023"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:07.321932"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:07.515689"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:07.766564"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:23:08.457257",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:23:11.737151",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:11.759142"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:13.789076"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:23:14.243766",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:23:16.377280",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:23:16.397093"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:23:18.084294",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "text_widget_id": 1931302832,
+        "editor_class": "Editor",
+        "sequence": "EditorTextCreated",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1952001744,
+        "time": "2018-07-19T21:24:26.407642"
+    },
+    {
+        "text_widget_id": 1931302832,
+        "editor_class": "Editor",
+        "filename": "/usr/lib/python2.7/socket.py",
+        "sequence": "Open",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1952001744,
+        "time": "2018-07-19T21:24:26.408856"
+    },
+    {
+        "text_widget_id": 1931302832,
+        "index1": "1.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:26.411380",
+        "sequence": "TextDelete",
+        "index2": "2.0"
+    },
+    {
+        "text": "# Wrapper module for _socket, providing some additional facilities\n# implemented in Python.\n\n\"\"\"\\\nThis module provides socket operations and some related functions.\nOn Unix, it supports IP (Internet Protocol) and Unix domain sockets.\nOn other systems, it only supports IP. Functions specific for a\nsocket are available as methods of the socket object.\n\nFunctions:\n\nsocket() -- create a new socket object\nsocketpair() -- create a pair of new socket objects [*]\nfromfd() -- create a socket object from an open file descriptor [*]\ngethostname() -- return the current hostname\ngethostbyname() -- map a hostname to its IP number\ngethostbyaddr() -- map an IP number or hostname to DNS info\ngetservbyname() -- map a service name and a protocol name to a port number\ngetprotobyname() -- map a protocol name (e.g. 'tcp') to a number\nntohs(), ntohl() -- convert 16, 32 bit int from network to host byte order\nhtons(), htonl() -- convert 16, 32 bit int from host to network byte order\ninet_aton() -- convert IP addr string (123.45.67.89) to 32-bit packed format\ninet_ntoa() -- convert 32-bit packed format IP to string (123.45.67.89)\nssl() -- secure socket layer support (only available if configured)\nsocket.getdefaulttimeout() -- get the default timeout value\nsocket.setdefaulttimeout() -- set the default timeout value\ncreate_connection() -- connects to an address, with an optional timeout and\n                       optional source address.\n\n [*] not available on all platforms!\n\nSpecial objects:\n\nSocketType -- type object for socket objects\nerror -- exception raised for I/O errors\nhas_ipv6 -- boolean value indicating if IPv6 is supported\n\nInteger constants:\n\nAF_INET, AF_UNIX -- socket domains (first argument to socket() call)\nSOCK_STREAM, SOCK_DGRAM, SOCK_RAW -- socket types (second argument)\n\nMany other constants may be defined; these may be used in calls to\nthe setsockopt() and getsockopt() methods.\n\"\"\"\n\nimport _socket\nfrom _socket import *\nfrom functools import partial\nfrom types import MethodType\n\ntry:\n    import _ssl\nexcept ImportError:\n    # no SSL support\n    pass\nelse:\n    def ssl(sock, keyfile=None, certfile=None):\n        # we do an internal import here because the ssl\n        # module imports the socket module\n        import ssl as _realssl\n        warnings.warn(\"socket.ssl() is deprecated.  Use ssl.wrap_socket() instead.\",\n                      DeprecationWarning, stacklevel=2)\n        return _realssl.sslwrap_simple(sock, keyfile, certfile)\n\n    # we need to import the same constants we used to...\n    from _ssl import SSLError as sslerror\n    from _ssl import \\\n         RAND_add, \\\n         RAND_status, \\\n         SSL_ERROR_ZERO_RETURN, \\\n         SSL_ERROR_WANT_READ, \\\n         SSL_ERROR_WANT_WRITE, \\\n         SSL_ERROR_WANT_X509_LOOKUP, \\\n         SSL_ERROR_SYSCALL, \\\n         SSL_ERROR_SSL, \\\n         SSL_ERROR_WANT_CONNECT, \\\n         SSL_ERROR_EOF, \\\n         SSL_ERROR_INVALID_ERROR_CODE\n    try:\n        from _ssl import RAND_egd\n    except ImportError:\n        # LibreSSL does not provide RAND_egd\n        pass\n\nimport os, sys, warnings\n\ntry:\n    from cStringIO import StringIO\nexcept ImportError:\n    from StringIO import StringIO\n\ntry:\n    import errno\nexcept ImportError:\n    errno = None\nEBADF = getattr(errno, 'EBADF', 9)\nEINTR = getattr(errno, 'EINTR', 4)\n\n__all__ = [\"getfqdn\", \"create_connection\"]\n__all__.extend(os._get_exports_list(_socket))\n\n\n_realsocket = socket\n\n# WSA error codes\nif sys.platform.lower().startswith(\"win\"):\n    errorTab = {}\n    errorTab[10004] = \"The operation was interrupted.\"\n    errorTab[10009] = \"A bad file handle was passed.\"\n    errorTab[10013] = \"Permission denied.\"\n    errorTab[10014] = \"A fault occurred on the network??\" # WSAEFAULT\n    errorTab[10022] = \"An invalid operation was attempted.\"\n    errorTab[10035] = \"The socket operation would block\"\n    errorTab[10036] = \"A blocking operation is already in progress.\"\n    errorTab[10048] = \"The network address is in use.\"\n    errorTab[10054] = \"The connection has been reset.\"\n    errorTab[10058] = \"The network has been shut down.\"\n    errorTab[10060] = \"The operation timed out.\"\n    errorTab[10061] = \"Connection refused.\"\n    errorTab[10063] = \"The name is too long.\"\n    errorTab[10064] = \"The host is down.\"\n    errorTab[10065] = \"The host is unreachable.\"\n    __all__.append(\"errorTab\")\n\n\n\ndef getfqdn(name=''):\n    \"\"\"Get fully qualified domain name from name.\n\n    An empty argument is interpreted as meaning the local host.\n\n    First the hostname returned by gethostbyaddr() is checked, then\n    possibly existing aliases. In case no FQDN is available, hostname\n    from gethostname() is returned.\n    \"\"\"\n    name = name.strip()\n    if not name or name == '0.0.0.0':\n        name = gethostname()\n    try:\n        hostname, aliases, ipaddrs = gethostbyaddr(name)\n    except error:\n        pass\n    else:\n        aliases.insert(0, hostname)\n        for name in aliases:\n            if '.' in name:\n                break\n        else:\n            name = hostname\n    return name\n\n\n_socketmethods = (\n    'bind', 'connect', 'connect_ex', 'fileno', 'listen',\n    'getpeername', 'getsockname', 'getsockopt', 'setsockopt',\n    'sendall', 'setblocking',\n    'settimeout', 'gettimeout', 'shutdown')\n\nif os.name == \"nt\":\n    _socketmethods = _socketmethods + ('ioctl',)\n\nif sys.platform == \"riscos\":\n    _socketmethods = _socketmethods + ('sleeptaskw',)\n\n# All the method names that must be delegated to either the real socket\n# object or the _closedsocket object.\n_delegate_methods = (\"recv\", \"recvfrom\", \"recv_into\", \"recvfrom_into\",\n                     \"send\", \"sendto\")\n\nclass _closedsocket(object):\n    __slots__ = []\n    def _dummy(*args):\n        raise error(EBADF, 'Bad file descriptor')\n    # All _delegate_methods must also be initialized here.\n    send = recv = recv_into = sendto = recvfrom = recvfrom_into = _dummy\n    __getattr__ = _dummy\n\n# Wrapper around platform socket objects. This implements\n# a platform-independent dup() functionality. The\n# implementation currently relies on reference counting\n# to close the underlying socket object.\nclass _socketobject(object):\n\n    __doc__ = _realsocket.__doc__\n\n    __slots__ = [\"_sock\", \"__weakref__\"] + list(_delegate_methods)\n\n    def __init__(self, family=AF_INET, type=SOCK_STREAM, proto=0, _sock=None):\n        if _sock is None:\n            _sock = _realsocket(family, type, proto)\n        self._sock = _sock\n        for method in _delegate_methods:\n            setattr(self, method, getattr(_sock, method))\n\n    def close(self, _closedsocket=_closedsocket,\n              _delegate_methods=_delegate_methods, setattr=setattr):\n        # This function should not reference any globals. See issue #808164.\n        self._sock = _closedsocket()\n        dummy = self._sock._dummy\n        for method in _delegate_methods:\n            setattr(self, method, dummy)\n    close.__doc__ = _realsocket.close.__doc__\n\n    def accept(self):\n        sock, addr = self._sock.accept()\n        return _socketobject(_sock=sock), addr\n    accept.__doc__ = _realsocket.accept.__doc__\n\n    def dup(self):\n        \"\"\"dup() -> socket object\n\n        Return a new socket object connected to the same system resource.\"\"\"\n        return _socketobject(_sock=self._sock)\n\n    def makefile(self, mode='r', bufsize=-1):\n        \"\"\"makefile([mode[, bufsize]]) -> file object\n\n        Return a regular file object corresponding to the socket.  The mode\n        and bufsize arguments are as for the built-in open() function.\"\"\"\n        return _fileobject(self._sock, mode, bufsize)\n\n    family = property(lambda self: self._sock.family, doc=\"the socket family\")\n    type = property(lambda self: self._sock.type, doc=\"the socket type\")\n    proto = property(lambda self: self._sock.proto, doc=\"the socket protocol\")\n\ndef meth(name,self,*args):\n    return getattr(self._sock,name)(*args)\n\nfor _m in _socketmethods:\n    p = partial(meth,_m)\n    p.__name__ = _m\n    p.__doc__ = getattr(_realsocket,_m).__doc__\n    m = MethodType(p,None,_socketobject)\n    setattr(_socketobject,_m,m)\n\nsocket = SocketType = _socketobject\n\nclass _fileobject(object):\n    \"\"\"Faux file object attached to a socket object.\"\"\"\n\n    default_bufsize = 8192\n    name = \"<socket>\"\n\n    __slots__ = [\"mode\", \"bufsize\", \"softspace\",\n                 # \"closed\" is a property, see below\n                 \"_sock\", \"_rbufsize\", \"_wbufsize\", \"_rbuf\", \"_wbuf\", \"_wbuf_len\",\n                 \"_close\"]\n\n    def __init__(self, sock, mode='rb', bufsize=-1, close=False):\n        self._sock = sock\n        self.mode = mode # Not actually used in this version\n        if bufsize < 0:\n            bufsize = self.default_bufsize\n        self.bufsize = bufsize\n        self.softspace = False\n        # _rbufsize is the suggested recv buffer size.  It is *strictly*\n        # obeyed within readline() for recv calls.  If it is larger than\n        # default_bufsize it will be used for recv calls within read().\n        if bufsize == 0:\n            self._rbufsize = 1\n        elif bufsize == 1:\n            self._rbufsize = self.default_bufsize\n        else:\n            self._rbufsize = bufsize\n        self._wbufsize = bufsize\n        # We use StringIO for the read buffer to avoid holding a list\n        # of variously sized string objects which have been known to\n        # fragment the heap due to how they are malloc()ed and often\n        # realloc()ed down much smaller than their original allocation.\n        self._rbuf = StringIO()\n        self._wbuf = [] # A list of strings\n        self._wbuf_len = 0\n        self._close = close\n\n    def _getclosed(self):\n        return self._sock is None\n    closed = property(_getclosed, doc=\"True if the file is closed\")\n\n    def close(self):\n        try:\n            if self._sock:\n                self.flush()\n        finally:\n            if self._close:\n                self._sock.close()\n            self._sock = None\n\n    def __del__(self):\n        try:\n            self.close()\n        except:\n            # close() may fail if __init__ didn't complete\n            pass\n\n    def flush(self):\n        if self._wbuf:\n            data = \"\".join(self._wbuf)\n            self._wbuf = []\n            self._wbuf_len = 0\n            buffer_size = max(self._rbufsize, self.default_bufsize)\n            data_size = len(data)\n            write_offset = 0\n            view = memoryview(data)\n            try:\n                while write_offset < data_size:\n                    self._sock.sendall(view[write_offset:write_offset+buffer_size])\n                    write_offset += buffer_size\n            finally:\n                if write_offset < data_size:\n                    remainder = data[write_offset:]\n                    del view, data  # explicit free\n                    self._wbuf.append(remainder)\n                    self._wbuf_len = len(remainder)\n\n    def fileno(self):\n        return self._sock.fileno()\n\n    def write(self, data):\n        data = str(data) # XXX Should really reject non-string non-buffers\n        if not data:\n            return\n        self._wbuf.append(data)\n        self._wbuf_len += len(data)\n        if (self._wbufsize == 0 or\n            (self._wbufsize == 1 and '\\n' in data) or\n            (self._wbufsize > 1 and self._wbuf_len >= self._wbufsize)):\n            self.flush()\n\n    def writelines(self, list):\n        # XXX We could do better here for very long lists\n        # XXX Should really reject non-string non-buffers\n        lines = filter(None, map(str, list))\n        self._wbuf_len += sum(map(len, lines))\n        self._wbuf.extend(lines)\n        if (self._wbufsize <= 1 or\n            self._wbuf_len >= self._wbufsize):\n            self.flush()\n\n    def read(self, size=-1):\n        # Use max, disallow tiny reads in a loop as they are very inefficient.\n        # We never leave read() with any leftover data from a new recv() call\n        # in our internal buffer.\n        rbufsize = max(self._rbufsize, self.default_bufsize)\n        # Our use of StringIO rather than lists of string objects returned by\n        # recv() minimizes memory usage and fragmentation that occurs when\n        # rbufsize is large compared to the typical return value of recv().\n        buf = self._rbuf\n        buf.seek(0, 2)  # seek end\n        if size < 0:\n            # Read until EOF\n            self._rbuf = StringIO()  # reset _rbuf.  we consume it via buf.\n            while True:\n                try:\n                    data = self._sock.recv(rbufsize)\n                except error, e:\n                    if e.args[0] == EINTR:\n                        continue\n                    raise\n                if not data:\n                    break\n                buf.write(data)\n            return buf.getvalue()\n        else:\n            # Read until size bytes or EOF seen, whichever comes first\n            buf_len = buf.tell()\n            if buf_len >= size:\n                # Already have size bytes in our buffer?  Extract and return.\n                buf.seek(0)\n                rv = buf.read(size)\n                self._rbuf = StringIO()\n                self._rbuf.write(buf.read())\n                return rv\n\n            self._rbuf = StringIO()  # reset _rbuf.  we consume it via buf.\n            while True:\n                left = size - buf_len\n                # recv() will malloc the amount of memory given as its\n                # parameter even though it often returns much less data\n                # than that.  The returned data string is short lived\n                # as we copy it into a StringIO and free it.  This avoids\n                # fragmentation issues on many platforms.\n                try:\n                    data = self._sock.recv(left)\n                except error, e:\n                    if e.args[0] == EINTR:\n                        continue\n                    raise\n                if not data:\n                    break\n                n = len(data)\n                if n == size and not buf_len:\n                    # Shortcut.  Avoid buffer data copies when:\n                    # - We have no data in our buffer.\n                    # AND\n                    # - Our call to recv returned exactly the\n                    #   number of bytes we were asked to read.\n                    return data\n                if n == left:\n                    buf.write(data)\n                    del data  # explicit free\n                    break\n                assert n <= left, \"recv(%d) returned %d bytes\" % (left, n)\n                buf.write(data)\n                buf_len += n\n                del data  # explicit free\n                #assert buf_len == buf.tell()\n            return buf.getvalue()\n\n    def readline(self, size=-1):\n        buf = self._rbuf\n        buf.seek(0, 2)  # seek end\n        if buf.tell() > 0:\n            # check if we already have it in our buffer\n            buf.seek(0)\n            bline = buf.readline(size)\n            if bline.endswith('\\n') or len(bline) == size:\n                self._rbuf = StringIO()\n                self._rbuf.write(buf.read())\n                return bline\n            del bline\n        if size < 0:\n            # Read until \\n or EOF, whichever comes first\n            if self._rbufsize <= 1:\n                # Speed up unbuffered case\n                buf.seek(0)\n                buffers = [buf.read()]\n                self._rbuf = StringIO()  # reset _rbuf.  we consume it via buf.\n                data = None\n                recv = self._sock.recv\n                while True:\n                    try:\n                        while data != \"\\n\":\n                            data = recv(1)\n                            if not data:\n                                break\n                            buffers.append(data)\n                    except error, e:\n                        # The try..except to catch EINTR was moved outside the\n                        # recv loop to avoid the per byte overhead.\n                        if e.args[0] == EINTR:\n                            continue\n                        raise\n                    break\n                return \"\".join(buffers)\n\n            buf.seek(0, 2)  # seek end\n            self._rbuf = StringIO()  # reset _rbuf.  we consume it via buf.\n            while True:\n                try:\n                    data = self._sock.recv(self._rbufsize)\n                except error, e:\n                    if e.args[0] == EINTR:\n                        continue\n                    raise\n                if not data:\n                    break\n                nl = data.find('\\n')\n                if nl >= 0:\n                    nl += 1\n                    buf.write(data[:nl])\n                    self._rbuf.write(data[nl:])\n                    del data\n                    break\n                buf.write(data)\n            return buf.getvalue()\n        else:\n            # Read until size bytes or \\n or EOF seen, whichever comes first\n            buf.seek(0, 2)  # seek end\n            buf_len = buf.tell()\n            if buf_len >= size:\n                buf.seek(0)\n                rv = buf.read(size)\n                self._rbuf = StringIO()\n                self._rbuf.write(buf.read())\n                return rv\n            self._rbuf = StringIO()  # reset _rbuf.  we consume it via buf.\n            while True:\n                try:\n                    data = self._sock.recv(self._rbufsize)\n                except error, e:\n                    if e.args[0] == EINTR:\n                        continue\n                    raise\n                if not data:\n                    break\n                left = size - buf_len\n                # did we just receive a newline?\n                nl = data.find('\\n', 0, left)\n                if nl >= 0:\n                    nl += 1\n                    # save the excess data to _rbuf\n                    self._rbuf.write(data[nl:])\n                    if buf_len:\n                        buf.write(data[:nl])\n                        break\n                    else:\n                        # Shortcut.  Avoid data copy through buf when returning\n                        # a substring of our first recv().\n                        return data[:nl]\n                n = len(data)\n                if n == size and not buf_len:\n                    # Shortcut.  Avoid data copy through buf when\n                    # returning exactly all of our first recv().\n                    return data\n                if n >= left:\n                    buf.write(data[:left])\n                    self._rbuf.write(data[left:])\n                    break\n                buf.write(data)\n                buf_len += n\n                #assert buf_len == buf.tell()\n            return buf.getvalue()\n\n    def readlines(self, sizehint=0):\n        total = 0\n        list = []\n        while True:\n            line = self.readline()\n            if not line:\n                break\n            list.append(line)\n            total += len(line)\n            if sizehint and total >= sizehint:\n                break\n        return list\n\n    # Iterator protocols\n\n    def __iter__(self):\n        return self\n\n    def next(self):\n        line = self.readline()\n        if not line:\n            raise StopIteration\n        return line\n\n_GLOBAL_DEFAULT_TIMEOUT = object()\n\ndef create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,\n                      source_address=None):\n    \"\"\"Connect to *address* and return the socket object.\n\n    Convenience function.  Connect to *address* (a 2-tuple ``(host,\n    port)``) and return the socket object.  Passing the optional\n    *timeout* parameter will set the timeout on the socket instance\n    before attempting to connect.  If no *timeout* is supplied, the\n    global default timeout setting returned by :func:`getdefaulttimeout`\n    is used.  If *source_address* is set it must be a tuple of (host, port)\n    for the socket to bind as a source address before making the connection.\n    A host of '' or port 0 tells the OS to use the default.\n    \"\"\"\n\n    host, port = address\n    err = None\n    for res in getaddrinfo(host, port, 0, SOCK_STREAM):\n        af, socktype, proto, canonname, sa = res\n        sock = None\n        try:\n            sock = socket(af, socktype, proto)\n            if timeout is not _GLOBAL_DEFAULT_TIMEOUT:\n                sock.settimeout(timeout)\n            if source_address:\n                sock.bind(source_address)\n            sock.connect(sa)\n            return sock\n\n        except error as _:\n            err = _\n            if sock is not None:\n                sock.close()\n\n    if err is not None:\n        raise err\n    else:\n        raise error(\"getaddrinfo returns an empty list\")\n",
+        "tags": "()",
+        "text_widget_id": 1931302832,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "time": "2018-07-19T21:24:26.438595"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:24:35.520516",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:35.543119"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:36.455886"
+    },
+    {
+        "widget_id": 1931331984,
+        "time": "2018-07-19T21:24:38.354560",
+        "widget_class": "Scrollbar",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:24:41.038189",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:24:51.586391",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:51.613402"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:56.177362"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:24:57.616051"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:24:58.306828",
+        "command_id": "OpenFindDialog",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:24:58.532496",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:05.523397",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:05.958922",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:07.112617",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:09.937847",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:19.401860",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:19.641692",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:19.846931",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:20.134828",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:21.161523",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:24.137985",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:28.258534",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:30.722340",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:31.959818",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:32.673792",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:34.049916",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:37.548395",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330288,
+        "time": "2018-07-19T21:25:37.945090",
+        "widget_class": "Button",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:40.996502",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:25:41.012355"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:25:41.746450"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:44.554616",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:44.702218",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:47.413499",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:47.988899",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:25:48.379334",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1931330416,
+        "time": "2018-07-19T21:25:48.387152",
+        "widget_class": "Entry",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330416,
+        "time": "2018-07-19T21:25:48.544815",
+        "widget_class": "Entry",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1931330416,
+        "time": "2018-07-19T21:26:04.220327",
+        "widget_class": "Entry",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:26:17.358947",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:26:17.762745"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:26:28.239598"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:26:29.117047"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:26:30.223734"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:26:31.778280"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:26:32.247980",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:27:28.901874",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1931302832,
+        "text_widget_id": 1931302832,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:27:28.921863"
+    },
+    {
+        "widget_id": 1970406128,
+        "time": "2018-07-19T21:27:34.243206",
+        "widget_class": "EditorNotebook",
+        "sequence": "<Button-1>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:27:35.083020"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:27:35.672565"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:27:35.862736"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "index1": "5.7",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:27:36.996594",
+        "sequence": "TextDelete",
+        "index2": "5.11"
+    },
+    {
+        "text": "5",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "5.7",
+        "time": "2018-07-19T21:27:37.004637"
+    },
+    {
+        "text": "5",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "5.8",
+        "time": "2018-07-19T21:27:37.147863"
+    },
+    {
+        "text": "2",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "5.9",
+        "time": "2018-07-19T21:27:37.703998"
+    },
+    {
+        "text": "2",
+        "tags": "None",
+        "text_widget_id": 1970587760,
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "5.10",
+        "time": "2018-07-19T21:27:37.829186"
+    },
+    {
+        "text_widget_id": 1970587760,
+        "editor_class": "Editor",
+        "filename": "/home/pi/socketserver.py",
+        "sequence": "Save",
+        "text_widget_class": "CodeViewText",
+        "editor_id": 1970502896,
+        "time": "2018-07-19T21:27:38.634204"
+    },
+    {
+        "denied": "False",
+        "time": "2018-07-19T21:27:38.640412",
+        "command_id": "save_file",
+        "sequence": "Command"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:27:39.129046",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:27:46.630714",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:27:56.740625",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:28:00.948953",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:28:16.448573",
+        "widget_class": "Workbench",
+        "sequence": "<FocusOut>"
+    },
+    {
+        "widget_id": 1982897392,
+        "time": "2018-07-19T21:28:16.757769",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "widget_id": 1970587760,
+        "text_widget_id": 1970587760,
+        "widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-19T21:28:19.869855"
+    },
+    {
+        "denied": "True",
+        "time": "2018-07-19T21:28:20.384473",
+        "command_id": "save_file",
+        "sequence": "Command"
+    }
+]

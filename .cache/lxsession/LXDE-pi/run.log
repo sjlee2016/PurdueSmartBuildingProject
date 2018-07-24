@@ -98,31 +98,31 @@ xprop:  no such property "_NET_DESKTOP_NAMES"
 ** Message: app.vala:76: Launching lxpanel 
 ** Message: app.vala:76: Launching pcmanfm 
 
-** (lxsession:500): WARNING **: app.vala:86: Failed to execute child process "xscreensaver" (No such file or directory)
+** (lxsession:510): WARNING **: app.vala:86: Failed to execute child process "xscreensaver" (No such file or directory)
 
-** (lxsession:500): WARNING **: app.vala:87: Error when launching xscreensaver
+** (lxsession:510): WARNING **: app.vala:87: Error when launching xscreensaver
 ** Message: app.vala:76: Launching point-rpi 
 ** Message: options.vala:107: Create build-in Clipboard
 ** Message: main.vala:442: Check keymap_mode (null)
 ** Message: app.vala:76: Launching /usr/bin/ssh-agent 
-SSH_AUTH_SOCK=/tmp/ssh-KnFtYBXlKUGh/agent.603; export SSH_AUTH_SOCK;
-SSH_AGENT_PID=606; export SSH_AGENT_PID;
-echo Agent pid 606;
-** Message: x-terminal-emulator has very limited support, consider choose another terminal
+SSH_AUTH_SOCK=/tmp/ssh-McZlVNv6qM8I/agent.604; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=608; export SSH_AGENT_PID;
+echo Agent pid 608;
 ** Message: app.vala:130: point-rpi exit with this type of exit: 0
 ** Message: app.vala:139: Exit normal, don't reload
 ** Message: app.vala:130: /usr/bin/ssh-agent exit with this type of exit: 0
 ** Message: x-terminal-emulator has very limited support, consider choose another terminal
+** Message: x-terminal-emulator has very limited support, consider choose another terminal
+Openbox-Message: Unable to find a valid menu file "/usr/share/lxde/openbox/menu.xml"
 ** Message: Connecting ...
 ** Message: Status changed to down
 
-** (lxpanel:592): CRITICAL **: dhcpcd_open: Inappropriate ioctl for device
-Openbox-Message: Unable to find a valid menu file "/usr/share/lxde/openbox/menu.xml"
+** (lxpanel:597): CRITICAL **: dhcpcd_open: Inappropriate ioctl for device
 Unit pt-device-manager.service could not be found.
 
-** (lxpanel:592): WARNING **: Battery 0 not found
+** (lxpanel:597): WARNING **: Battery 0 not found
 
-** (lxpanel:592): WARNING **: lxpanel: can't load ptbatt plugin
+** (lxpanel:597): WARNING **: lxpanel: can't load ptbatt plugin
 ** Message: bt: Name org.bluez owned on DBus
 ** Message: bt: New agent manager found
 ** Message: bt: New adapter found
@@ -136,119 +136,7 @@ Unit pt-device-manager.service could not be found.
 ** Message: wlan0: Received scan results
 ** Message: wlan0: Configured 192.168.20.92/24
 ** Message: Status changed to connected
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
+node-red-start
 ** Message: wlan0: Received scan results
 ** Message: wlan0: Received scan results
 ** Message: wlan0: Received scan results
@@ -267,194 +155,3 @@ lxterminal
 ** Message: wlan0: Received scan results
 ** Message: wlan0: Received scan results
 ** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-pcmanfm 
-/usr/bin/thonny '/home/pi/receive/receive.py' 
-INFO: Loading early plugins from ['/usr/bin', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-arm-linux-gnueabihf', '/usr/lib/python3.5/lib-dynload', '/usr/local/lib/python3.5/dist-packages', '/usr/lib/python3/dist-packages', '/home/pi/.thonny/plugins/lib/python3.5/site-packages']
-** Message: wlan0: Received scan results
-/usr/bin/idle3
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-/usr/bin/thonny '/home/pi/servo.py' 
-INFO: Loading early plugins from ['/usr/bin', '/usr/lib/python35.zip', '/usr/lib/python3.5', '/usr/lib/python3.5/plat-arm-linux-gnueabihf', '/usr/lib/python3.5/lib-dynload', '/usr/local/lib/python3.5/dist-packages', '/usr/lib/python3/dist-packages', '/home/pi/.thonny/plugins/lib/python3.5/site-packages']
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-
-** (lxpanel:592): WARNING **: lxpanel : X error: BadWindow (invalid Window parameter)
-** Message: wlan0: Received scan results
-** Message: wlan0: Received scan results
-lxterminal

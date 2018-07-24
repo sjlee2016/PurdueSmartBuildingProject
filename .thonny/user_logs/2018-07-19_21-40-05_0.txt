@@ -1,0 +1,102 @@
+[
+    {
+        "editor_class": "Editor",
+        "text_widget_id": 1970370576,
+        "sequence": "EditorTextCreated",
+        "editor_id": 1970286288,
+        "time": "2018-07-19T21:40:05.133057",
+        "text_widget_class": "CodeViewText"
+    },
+    {
+        "filename": "/home/pi/camera.py",
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "sequence": "Open",
+        "editor_id": 1970286288,
+        "time": "2018-07-19T21:40:05.134061",
+        "text_widget_id": 1970370576
+    },
+    {
+        "index2": "2.0",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1970370576,
+        "index1": "1.0",
+        "time": "2018-07-19T21:40:05.205195",
+        "sequence": "TextDelete"
+    },
+    {
+        "index": "1.0",
+        "text_widget_class": "CodeViewText",
+        "text_widget_id": 1970370576,
+        "time": "2018-07-19T21:40:05.220791",
+        "tags": "()",
+        "text": "from picamera import PiCamera\nfrom time import sleep\n\ncamera = PiCamera()\n\ncamera.start_preview()\nsleep(10)\ncamera.stop_preview()\n",
+        "sequence": "TextInsert"
+    },
+    {
+        "view_class": "ShellView",
+        "time": "2018-07-19T21:40:05.234540",
+        "sequence": "ShowView",
+        "view_id": "ShellView"
+    },
+    {
+        "widget_id": 1982678928,
+        "time": "2018-07-19T21:40:05.458733",
+        "widget_class": "Workbench",
+        "sequence": "<FocusIn>"
+    },
+    {
+        "index": "1.0",
+        "text_widget_class": "ShellText",
+        "text_widget_id": 1970226576,
+        "text_widget_context": "shell",
+        "time": "2018-07-19T21:40:05.470688",
+        "tags": "('welcome',)",
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "sequence": "TextInsert"
+    },
+    {
+        "index": "1.31",
+        "text_widget_class": "ShellText",
+        "text_widget_id": 1970226576,
+        "text_widget_context": "shell",
+        "time": "2018-07-19T21:40:05.474547",
+        "tags": "('io',)",
+        "text": "\n",
+        "sequence": "TextInsert"
+    },
+    {
+        "index": "2.0",
+        "text_widget_class": "ShellText",
+        "text_widget_id": 1970226576,
+        "text_widget_context": "shell",
+        "time": "2018-07-19T21:40:05.475831",
+        "tags": "('toplevel', 'prompt')",
+        "text": ">>> ",
+        "sequence": "TextInsert"
+    },
+    {
+        "widget_id": 1970370576,
+        "text_widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970370576,
+        "time": "2018-07-19T21:40:05.627132",
+        "widget_class": "CodeViewText"
+    },
+    {
+        "widget_id": 1970370576,
+        "text_widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970370576,
+        "time": "2018-07-19T21:40:06.200371",
+        "widget_class": "CodeViewText"
+    },
+    {
+        "widget_id": 1970370576,
+        "text_widget_class": "CodeViewText",
+        "sequence": "<Button-1>",
+        "text_widget_id": 1970370576,
+        "time": "2018-07-19T21:40:06.780763",
+        "widget_class": "CodeViewText"
+    }
+]

@@ -1,0 +1,288 @@
+[
+    {
+        "time": "2018-07-20T19:34:17.329444",
+        "sequence": "EditorTextCreated",
+        "editor_id": 1970216272,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1970300752
+    },
+    {
+        "time": "2018-07-20T19:34:17.331481",
+        "sequence": "Open",
+        "filename": "/home/pi/socketserver.py",
+        "editor_id": 1970216272,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1970300752
+    },
+    {
+        "index2": "2.0",
+        "text_widget_id": 1970300752,
+        "sequence": "TextDelete",
+        "text_widget_class": "CodeViewText",
+        "index1": "1.0",
+        "time": "2018-07-20T19:34:17.400456"
+    },
+    {
+        "text": "import socket\nimport functions\n\nHOST = \"192.168.20.92\"\nPORT = 5522\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nprint ('Socket created')\ns.bind((HOST, PORT))\nprint ('Socket bind complete')\ns.listen(1)\nprint ('Socket now listening')\n\n# pi control function\ndef do_some_stuffs_with_input(input_string):\n\t#Raspberry Pi control\n\tif input_string == \"left\":\n\t\tinput_string = \"shutter down\"\n\t\tfunctions.servo()\n\telif input_string == \"right\":\n\t\tinput_string = \"shutter Up\"\n\telif input_string == \"single\":\n\t\tinput_string = \"take a picture\"\n\telse :\n\t\tinput_string = input_string + \"No\"\n\treturn input_string\n\nwhile True:\n\t\n\tconn, addr = s.accept()\n\tprint(\"Connected by\", addr)\n\n\tdata = conn.recv(1024)\n\tdata = data.decode(\"utf8\").strip()\n\tif not data: break\n\tprint(\"Received : \" + data)\n\t\n\tres = do_some_stuffs_with_input(data)\n\tprint(\"Pi work :\" + res)\n\n\tconn.sendall(res.encode(\"utf8\"))\n\tconn.close()\ns.close()\n",
+        "time": "2018-07-20T19:34:17.428380",
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "tags": "()",
+        "text_widget_id": 1970300752
+    },
+    {
+        "view_id": 1970155568,
+        "view_class": "ShellView",
+        "time": "2018-07-20T19:34:17.451453",
+        "sequence": "ShowView"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:17.845090",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "text": "Python 3.5.3 (/usr/bin/python3)",
+        "time": "2018-07-20T19:34:17.926814",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "1.0",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970157040,
+        "tags": "('welcome',)"
+    },
+    {
+        "text": "\n",
+        "time": "2018-07-20T19:34:17.933872",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "1.31",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970157040,
+        "tags": "('io',)"
+    },
+    {
+        "text": ">>> ",
+        "time": "2018-07-20T19:34:17.937044",
+        "sequence": "TextInsert",
+        "text_widget_class": "ShellText",
+        "index": "2.0",
+        "text_widget_context": "shell",
+        "text_widget_id": 1970157040,
+        "tags": "('toplevel', 'prompt')"
+    },
+    {
+        "time": "2018-07-20T19:34:18.906082",
+        "sequence": "<Button-1>",
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970300752,
+        "text_widget_id": 1970300752
+    },
+    {
+        "time": "2018-07-20T19:34:34.953615",
+        "sequence": "<Button-1>",
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970300752,
+        "text_widget_id": 1970300752
+    },
+    {
+        "time": "2018-07-20T19:34:36.257292",
+        "sequence": "<Button-1>",
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970300752,
+        "text_widget_id": 1970300752
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:43.533074",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:44.166829",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:44.173768",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:46.496136",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:46.765375",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:47.473773",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:34:47.491081",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:15.970310",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-20T19:36:16.120763",
+        "sequence": "<Button-1>",
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1970300752,
+        "text_widget_id": 1970300752
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:18.702058",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:27.305581",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:27.325508",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:27.951316",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:36:29.446621",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-20T19:37:20.486291",
+        "sequence": "EditorTextCreated",
+        "editor_id": 1951507984,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1951508880
+    },
+    {
+        "time": "2018-07-20T19:37:20.488370",
+        "sequence": "Open",
+        "filename": "/home/pi/send/receive.py",
+        "editor_id": 1951507984,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1951508880
+    },
+    {
+        "index2": "2.0",
+        "text_widget_id": 1951508880,
+        "sequence": "TextDelete",
+        "text_widget_class": "CodeViewText",
+        "index1": "1.0",
+        "time": "2018-07-20T19:37:20.490799"
+    },
+    {
+        "text": "import socket\n\nUDP_IP = \"CHANGE TO PI'S IP\"\n\nUDP_PORT = 5005\n\nsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP\n\nsock.bind(MESSAGE, (UDP_IP, UDP_PORT))\n\nwhile True:\n\n\tdata, addr = sock.recvfrom(1024) # buffer size is 1024 bytes\n\n\tprint \"received message:\" ,data\n",
+        "time": "2018-07-20T19:37:20.499381",
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "tags": "()",
+        "text_widget_id": 1951508880
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:37:20.538400",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:37:25.866339",
+        "sequence": "<FocusOut>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-20T19:37:36.959449",
+        "sequence": "EditorTextCreated",
+        "editor_id": 1951509904,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1951510160
+    },
+    {
+        "time": "2018-07-20T19:37:36.961569",
+        "sequence": "Open",
+        "filename": "/home/pi/servoControl.py",
+        "editor_id": 1951509904,
+        "text_widget_class": "CodeViewText",
+        "editor_class": "Editor",
+        "text_widget_id": 1951510160
+    },
+    {
+        "index2": "2.0",
+        "text_widget_id": 1951510160,
+        "sequence": "TextDelete",
+        "text_widget_class": "CodeViewText",
+        "index1": "1.0",
+        "time": "2018-07-20T19:37:36.963881"
+    },
+    {
+        "text": "import RPi.GPIO as GPIO\nimport time\n\nGPIO.setmode(GPIO.BOARD)\nGPIO.setup(7,GPIO.OUT)\nGPIO.setup(12,GPIO.IN, pull_up_down = GPIO.PUD_UP)\n\ntry: \n\twhile True:\n\t\tinput_status = GPIO.input(12)\n\t\tif input_status == False:\n\t\t\tprint \"button clicked\"\n\t\t\tGPIO.output(7,1)\n\t\t\ttime.sleep(0.0015)\n\t\t\tGPIO.output(7,0)\n\n1\nexcept KeyboardInterrupt:\n\tGPIO.cleanup()\n\n",
+        "time": "2018-07-20T19:37:36.972720",
+        "sequence": "TextInsert",
+        "text_widget_class": "CodeViewText",
+        "index": "1.0",
+        "tags": "()",
+        "text_widget_id": 1951510160
+    },
+    {
+        "widget_id": 1982609296,
+        "time": "2018-07-20T19:37:39.907910",
+        "sequence": "<FocusIn>",
+        "widget_class": "Workbench"
+    },
+    {
+        "time": "2018-07-20T19:37:40.778430",
+        "sequence": "<Button-1>",
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "widget_id": 1951510160,
+        "text_widget_id": 1951510160
+    },
+    {
+        "widget_id": 1970119408,
+        "time": "2018-07-20T19:37:49.741089",
+        "sequence": "<Button-1>",
+        "widget_class": "EditorNotebook"
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "sequence": "EditorTextCreated",
+        "text_widget_id": 1971218800,
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-20T20:31:32.763246",
+        "editor_class": "Editor",
+        "editor_id": 1971133712
+    },
+    {
+        "sequence": "Open",
+        "text_widget_id": 1971218800,
+        "text_widget_class": "CodeViewText",
+        "filename": "/home/pi/Desktop/Servomotor.py",
+        "time": "2018-07-20T20:31:32.766390",
+        "editor_class": "Editor",
+        "editor_id": 1971133712
+    },
+    {
+        "sequence": "TextDelete",
+        "index1": "1.0",
+        "text_widget_id": 1971218800,
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-20T20:31:32.932343",
+        "index2": "2.0"
+    },
+    {
+        "sequence": "TextInsert",
+        "text_widget_id": 1971218800,
+        "index": "1.0",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-20T20:31:32.979872",
+        "tags": "()",
+        "text": "import RPi.GPIO as GPIO\nimport time\ncur_x = 0\ndef setup():\n\tGPIO.setmode(GPIO.BOARD)\n\tGPIO.setup(7,GPIO.OUT)\n\tglobal servo\n\tservo = GPIO.PWM(7,50)\n\tservo.start(2.5)\n\tservo.ChangeDutyCycle(2.5)\n\ndef servoUp():\n\tglobal cur_X\n\tcur_X +=2.5\n\tif cur_X > 12:\n\t\tcur_X = 12.5\n\tservo.ChangeDutyCycle(cur_X)\n\ttime.sleep(1)\n\ndef servoDown():\n\tglobal cur_X\n\tcur_X -= 2.5\n\tif cur_X < 2.5:\n\t\tcur_X = 2.5\n\tservo.ChangeDutyCycle(cur_X)\ndef close():\n\tservo.stop()\nif __name__ == '__main__':\n\tsetup()\n"
+    },
+    {
+        "sequence": "ShowView",
+        "view_id": 1971074256,
+        "view_class": "ShellView",
+        "time": "2018-07-20T20:31:33.018849"
+    },
+    {
+        "sequence": "<FocusIn>",
+        "time": "2018-07-20T20:31:33.483170",
+        "widget_class": "Workbench",
+        "widget_id": 1983527376
+    },
+    {
+        "sequence": "TextInsert",
+        "text_widget_context": "shell",
+        "text_widget_id": 1971074352,
+        "index": "1.0",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-20T20:31:33.507476",
+        "tags": "('welcome',)",
+        "text": "Python 3.5.3 (/usr/bin/python3)"
+    },
+    {
+        "sequence": "TextInsert",
+        "text_widget_context": "shell",
+        "text_widget_id": 1971074352,
+        "index": "1.31",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-20T20:31:33.513938",
+        "tags": "('io',)",
+        "text": "\n"
+    },
+    {
+        "sequence": "TextInsert",
+        "text_widget_context": "shell",
+        "text_widget_id": 1971074352,
+        "index": "2.0",
+        "text_widget_class": "ShellText",
+        "time": "2018-07-20T20:31:33.516874",
+        "tags": "('toplevel', 'prompt')",
+        "text": ">>> "
+    },
+    {
+        "sequence": "<Button-1>",
+        "text_widget_id": 1971218800,
+        "widget_class": "CodeViewText",
+        "text_widget_class": "CodeViewText",
+        "time": "2018-07-20T20:31:33.844301",
+        "widget_id": 1971218800
+    },
+    {
+        "sequence": "<Button-1>",
+        "time": "2018-07-20T20:31:44.733360",
+        "widget": ".#1972301680"
+    },
+    {
+        "sequence": "Command",
+        "time": "2018-07-20T20:31:45.806582",
+        "denied": "False",
+        "command_id": "close_file"
+    }
+]
